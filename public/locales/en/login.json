@@ -1,0 +1,9 @@
+{
+  "login_header": "Log In",
+  "login_description": "Enter your details to log in. You can use email or phone number.",
+  "email_login_tab": "Log in with email",
+  "phone_login_tab": "Log in with phone",
+  "forgot_password": "Forgot password?",
+  "login_button": "Log In",
+  "dont_have_account": "Don’t have an account? <navigation><btn>Register</btn></navigation>"
+}

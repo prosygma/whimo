@@ -1,0 +1,15 @@
+{
+    "notifications": "Notifications",
+    "all_notifications": "Tous",
+    "require_actions_notifications": "Actions requises",
+    "transaction_pending": "Demande d'approbation de transaction",
+    "transaction_accepted": "Transaction acceptée",
+    "transaction_rejected": "Transaction rejetée",
+    "transaction_expired": "Transaction expirée",
+    "geodata_missing": "Demande de géolocalisation manquante",
+    "geodata_updated": "La géolocalisation a été mise à jour",
+    "view_details": "Voir les détails",
+    "notifications_empty_list_title": "Vous êtes à jour",
+    "notifications_empty_list_description": "<0>Aucun nouveau message ni aucune demande pour le moment.</0><1>Nous vous informerons si quelque chose nécessite votre attention.</1>",
+    "transaction_details": "Détails de la transaction"
+}

@@ -1,0 +1,17 @@
+{
+  "register_header": "Register",
+  "register_description": "Enter email address or phone number or\u00a0both to\u00a0create your\u00a0account.",
+  "password_placeholder": "Create password",
+  "password_confirm": "Confirm password",
+  "password_confirm_placeholder": "Confirm password",
+  "terms_and_conditions": "I accept Terms & Conditions",
+  "register_button": "Register",
+  "already_have_account": "Already have an account? <navigation><btn>Log in</btn></navigation>",
+  "verification_mode_select_title": "Get verification code",
+  "verification_mode_select_message": "Please select a preferred option how you would like to\u00a0get the verification code.",
+  "verification_mode_email": "Get with email",
+  "verification_mode_phone": "Get with phone",
+  "otp_email_header": "Check your email inbox",
+  "otp_phone_header": "Check your phone number",
+  "otp_complete_auth_description": "Enter the One-time Password to complete authentication"
+}

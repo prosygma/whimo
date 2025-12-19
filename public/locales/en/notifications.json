@@ -1,0 +1,15 @@
+{
+  "notifications": "Notifications",
+  "all_notifications": "All",
+  "require_actions_notifications": "Require actions",
+  "transaction_pending": "Transaction approval request",
+  "transaction_accepted": "Transaction accepted",
+  "transaction_rejected": "Transaction rejected",
+  "transaction_expired": "Transaction expired",
+  "geodata_missing": "Missing location request",
+  "geodata_updated": "Location updated",
+  "view_details": "View details",
+  "notifications_empty_list_title": "You're all caught up",
+  "notifications_empty_list_description": "<0>No new messages or requests for now.</0><1>We’ll notify you if something needs your attention.</1>",
+  "transaction_details": "Transaction details"
+}

@@ -1,0 +1,15 @@
+name: whimo-frontend
+
+services:
+  frontend-builder:
+    image: ${FRONTEND_IMAGE_NAME}
+    container_name: whimo-frontend-builder
+    command: ["sh", "-c", "cp -r /app/dist/* /output/"]
+    volumes:
+      - frontend_dist:/output
+    restart: "no"
+
+volumes:
+  frontend_dist:
+    external: true
+    name: whimo_frontend_dist

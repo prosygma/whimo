@@ -1,0 +1,17 @@
+{
+  "register_header": "Créer un compte",
+  "register_description": "Saisissez l'adresse e-mail ou le numéro de téléphone, ou les deux, pour créer votre compte.",
+  "password_placeholder": "Créer un mot de passe",
+  "password_confirm": "Confirmer le mot de passe",
+  "password_confirm_placeholder": "Confirmer le mot de passe",
+  "terms_and_conditions": "J'accepte les Conditions Générales",
+  "register_button": "Créer un compte",
+  "already_have_account": "Vous avez déjà un compte ? <navigation><btn>Se connecter</btn></navigation>",
+  "verification_mode_select_title": "Obtenir le code de vérification",
+  "verification_mode_select_message": "Veuillez sélectionner l'option que vous préférez pour recevoir le code de vérification.",
+  "verification_mode_email": "Recevoir par e-mail",
+  "verification_mode_phone": "Recevoir par téléphone",
+  "otp_email_header": "Vérifiez votre boîte email",
+  "otp_phone_header": "Vérifiez votre numéro de téléphone",
+  "otp_complete_auth_description": "Saisissez le mot de passe à usage unique pour terminer l’authentification"
+}

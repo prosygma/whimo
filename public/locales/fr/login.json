@@ -1,0 +1,9 @@
+{
+  "login_header": "Connexion",
+  "login_description": "Entrez vos détails pour vous connecter. Vous pouvez utiliser l'e-mail ou le numéro de téléphone.",
+  "email_login_tab": "Connectez-vous avec votre e-mail",
+  "phone_login_tab": "Connectez-vous avec votre téléphone",
+  "forgot_password": "Mot de passe oublié",
+  "login_button": "Connexion",
+  "dont_have_account": "Vous n'avez pas de compte ? <navigation><btn>Inscrivez-vous</btn></navigation>"
+}

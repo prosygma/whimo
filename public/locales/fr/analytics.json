@@ -1,0 +1,14 @@
+{
+    "analytics_page_header": "Analytique",
+    "summary_card_total_transactions": "Transactions totales",
+    "summary_card_total_transactions_description": "Le nombre total de transactions que vous avez créées ou reçues dans le système.",
+    "summary_card_total_suppliers": "Fournisseurs",
+    "summary_card_total_suppliers_description": "Le nombre de fournisseurs auprès desquels vous avez acheté des marchandises.",
+    "summary_card_initial_plots": "Parcelles initiales",
+    "summary_card_initial_plots_description": "Le nombre d'emplacements de fermes (parcelles) enregistrés ou liés à vos transactions.",
+    "summary_card_files_uploaded": "Fichiers téléversés",
+    "summary_card_files_uploaded_description": "Le nombre total de fichiers que vous avez téléversés contenant des données de fermes ou de géolocalisation.",
+    "total_transactions": "Transactions totales",
+    "traceability_chart_title": "Transactions par statut de traçabilité",
+    "transactions_chart_title": "Transactions par statut de la transaction"
+}

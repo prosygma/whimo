@@ -1,0 +1,14 @@
+{
+    "analytics_page_header": "Analítica",
+    "summary_card_total_transactions": "Transacciones totales",
+    "summary_card_total_transactions_description": "El número total de transacciones que has creado o recibido en el sistema.",
+    "summary_card_total_suppliers": "Proveedores",
+    "summary_card_total_suppliers_description": "El número de proveedores a los que has comprado mercancías.",
+    "summary_card_initial_plots": "Parcelas iniciales",
+    "summary_card_initial_plots_description": "El número de ubicaciones de fincas (parcelas) registradas o vinculadas a tus transacciones.",
+    "summary_card_files_uploaded": "Archivos subidos",
+    "summary_card_files_uploaded_description": "El número total de archivos que has subido con datos de fincas o de geolocalización.",
+    "total_transactions": "Transacciones totales",
+    "traceability_chart_title": "Transacciones por estado de trazabilidad",
+    "transactions_chart_title": "Transacciones por estado de la transacción"
+}

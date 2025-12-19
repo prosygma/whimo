@@ -1,0 +1,122 @@
+stages:
+  - build
+  - deploy
+
+# Build Stage
+# ----------------------------------------------------------------------------------------------------------------------
+
+.build: &build
+  stage: build
+  image: docker:28
+  tags:
+    - aws
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: https://gitlab.com
+  services:
+    - name: docker:28-dind
+      alias: docker
+  before_script:
+    - apk add --no-cache aws-cli curl jq
+    - >
+      aws_sts_output=$(aws sts assume-role-with-web-identity
+      --role-arn "arn:aws:iam::513952193387:role/gitlab-ci-cd-role-ec2-and-ecr"
+      --role-session-name "GitLabRunner-${CI_PROJECT_ID}-${CI_PIPELINE_ID}"
+      --web-identity-token ${GITLAB_OIDC_TOKEN}
+      --duration-seconds 3600
+      --region eu-west-1
+      --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]'
+      --output text)
+    - export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" $aws_sts_output)
+    - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 513952193387.dkr.ecr.eu-west-1.amazonaws.com
+  script:
+    - echo "$ENV_FILE" | base64 -d > .env
+    - source .env
+    - docker build --target builder --build-arg VITE_API_URL="${VITE_API_URL}" --build-arg VITE_GOOGLE_CLIENT_ID="${VITE_GOOGLE_CLIENT_ID}" --build-arg VITE_BASE_URL="${VITE_BASE_URL}" -t ${IMAGE_NAME} .
+    - docker tag ${IMAGE_NAME} 513952193387.dkr.ecr.eu-west-1.amazonaws.com/${ECR_REPO}:${IMAGE_TAG}
+    - docker push 513952193387.dkr.ecr.eu-west-1.amazonaws.com/${ECR_REPO}:${IMAGE_TAG}
+
+build:frontend:staging:
+  <<: *build
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+    IMAGE_NAME: whimo-frontend
+    ECR_REPO: whimo-front-staging
+    IMAGE_TAG: frontend-$CI_COMMIT_SHORT_SHA
+    ENV_FILE: $ENV_FRONTEND_STAGE_FILE
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "staging"
+
+build:frontend:prod:
+  <<: *build
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+    IMAGE_NAME: whimo-frontend
+    ECR_REPO: whimo-front-prod
+    IMAGE_TAG: frontend-$CI_COMMIT_SHORT_SHA
+    ENV_FILE: $ENV_FRONTEND_PROD_FILE
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "main"
+
+# Deploy Stage
+# ----------------------------------------------------------------------------------------------------------------------
+
+.deploy: &deploy
+  stage: deploy
+  image: alpine:3.21
+  tags:
+    - aws
+  before_script:
+    - apk add --no-cache aws-cli openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$AWS_SSH_PRIVATE_KEY" | base64 -d > /tmp/ssh_key
+    - chmod 600 /tmp/ssh_key
+    - ssh-add /tmp/ssh_key
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    # Copy docker-compose file
+    - scp -P "${AWS_SSH_PORT:-22}" ./docker-compose.yaml "${AWS_SSH_USER}@${AWS_SSH_HOST}:${WORKING_DIRECTORY}/"
+    
+    # Create .env file
+    - |
+      ssh -p "${AWS_SSH_PORT:-22}" -T "${AWS_SSH_USER}@${AWS_SSH_HOST}" "
+        printf 'FRONTEND_IMAGE_NAME=%s\n' \"${FRONTEND_IMAGE_NAME}\" > '${WORKING_DIRECTORY}/.env'
+      "
+    
+    # Login to ECR, pull image, and deploy
+    - |
+      ssh -p "${AWS_SSH_PORT:-22}" -T "${AWS_SSH_USER}@${AWS_SSH_HOST}" "
+        aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 513952193387.dkr.ecr.eu-west-1.amazonaws.com &&
+        cd '${WORKING_DIRECTORY}' &&
+        docker compose pull &&
+        docker compose up -d &&
+        docker image prune -f
+      "
+
+deploy:frontend:staging:
+  <<: *deploy
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+    AWS_SSH_HOST: $AWS_SSH_HOST_STAGE
+    AWS_SSH_PORT: $AWS_SSH_PORT_STAGE
+    AWS_SSH_USER: $AWS_SSH_USER_STAGE
+    ENV: staging
+    WORKING_DIRECTORY: /opt/docker/whimo-frontend-stage
+    FRONTEND_IMAGE_NAME: 513952193387.dkr.ecr.eu-west-1.amazonaws.com/whimo-front-staging:frontend-$CI_COMMIT_SHORT_SHA
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "staging"
+
+deploy:frontend:prod:
+  <<: *deploy
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+    AWS_SSH_HOST: $AWS_SSH_HOST_PROD
+    AWS_SSH_PORT: $AWS_SSH_PORT_PROD
+    AWS_SSH_USER: $AWS_SSH_USER_PROD
+    ENV: prod
+    WORKING_DIRECTORY: /opt/docker/whimo-frontend-prod
+    FRONTEND_IMAGE_NAME: 513952193387.dkr.ecr.eu-west-1.amazonaws.com/whimo-front-prod:frontend-$CI_COMMIT_SHORT_SHA
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "main"
+    

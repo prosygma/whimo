@@ -1,0 +1,14 @@
+{
+  "analytics_page_header": "Analytics",
+  "summary_card_total_transactions": "Total transactions",
+  "summary_card_total_transactions_description": "The total number of transactions you have created or received in the system.",
+  "summary_card_total_suppliers": "Suppliers",
+  "summary_card_total_suppliers_description": "The number of suppliers you\u00a0have bought commodities from.",
+  "summary_card_initial_plots": "Initial plots",
+  "summary_card_initial_plots_description": "The number of farm locations (plots) registered or linked to\u00a0your transactions.",
+  "summary_card_files_uploaded": "Files uploaded",
+  "summary_card_files_uploaded_description": "The total number of files you’ve uploaded with farm or\u00a0geolocation data.",
+  "total_transactions": "Total transactions",
+  "traceability_chart_title": "Transactions by traceability status",
+  "transactions_chart_title": "Transactions by transaction status"
+}
