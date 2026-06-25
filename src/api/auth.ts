@@ -7,7 +7,7 @@ export const authUser = async (data: LoginForm) => {
   return response.data;
 };
 
-export const authGoogle = async (data: { code: string; redirect_uri?: string }) => {
+export const authGoogle = async (data: { code: string; redirect_uri?: string; client_id?: string }) => {
   const response = await axiosApi.post<ApiResponse & { data: AuthResponsePayload }>(
     'v1/auth/social/google/web/login/',
     data,
@@ -16,6 +16,8 @@ export const authGoogle = async (data: { code: string; redirect_uri?: string }) 
 };
 
 export const refreshToken = async (refresh: string) => {
-  const response = await axiosApi.post<ApiResponse & { data: AuthResponsePayload }>('v1/auth/jwt/refresh/', {refresh});
+  const response = await axiosApi.post<ApiResponse & { data: AuthResponsePayload }>('v1/auth/jwt/refresh/', {
+    refresh,
+  });
   return response.data;
 };
