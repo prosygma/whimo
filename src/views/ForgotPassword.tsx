@@ -77,7 +77,7 @@ const ForgotPassword: React.FC = () => {
 
   return (
     <>
-      <div className="flex-1 flex flex-col gap-8 w-123 pt-45 mx-10">
+      <div className="flex-1 flex flex-col gap-8 w-full max-w-123 pt-4 lg:pt-0 mx-auto px-4 lg:px-0">
         {!showNewPasswordScreen ? (
           <ForgotPasswordForm mode={otpMode} setMode={switchOtpMode} onContinue={onIdentifierFillProceed} />
         ) : (

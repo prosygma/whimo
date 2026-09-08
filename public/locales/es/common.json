@@ -49,5 +49,6 @@
   "new_password_placeholder": "Ingresa nueva contraseña",
   "confirm_password": "Confirmar nueva contraseña",
   "new_password_confirm_placeholder": "$t(confirm_password)",
-  "something_went_wrong": "¡Algo salió mal!"
+  "something_went_wrong": "¡Algo salió mal!",
+  "download_apk_link": "Descargar aplicación Android (APK)"
 }

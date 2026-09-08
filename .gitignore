@@ -27,3 +27,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Mobile app binaries (ship as release assets, not in the repo)
+*.apk
+*.aab
+*.ipa

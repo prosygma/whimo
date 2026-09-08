@@ -17,6 +17,7 @@ import NoAuthLayout from './components/Layouts/NoAuthLayout.tsx';
 import Analytics from './views/Analytics.tsx';
 import AxiosInterceptor from './components/AxiosInterceptor.tsx';
 import ForgotPassword from './views/ForgotPassword.tsx';
+import Download from './views/Download.tsx';
 import { ToastContainer } from 'react-toastify';
 import renderToastIcon from './helpers/renderToastIcon.tsx';
 
@@ -50,6 +51,8 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/oauth/callback" element={<Login />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/download" element={<Download />} />
+              <Route path="/dowload" element={<Download />} />
             </Route>
             <Route element={<ProtectedRoute />}>
               <Route element={<DashboardLayout />}>

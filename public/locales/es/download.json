@@ -1,0 +1,19 @@
+{
+  "title": "Instalación en Android",
+  "subtitle": "Siga estos sencillos pasos para instalar la aplicación Camertrace en su teléfono Android.",
+  "banner_title": "Archivo APK Seguro",
+  "banner_desc": "La aplicación está firmada y es segura. Descargar el APK directamente le permite disfrutar de todas nuestras funciones con facilidad.",
+  "download_btn": "Descargar aplicación APK (59 MB)",
+  "steps_title": "Pasos de instalación",
+  "step_1_title": "Descargar el archivo",
+  "step_1_desc": "Toque el botón de descarga de arriba. Si su navegador muestra una advertencia sobre archivos APK, toque <bold>Descargar de todos modos</bold> o <bold>Conservar</bold>.",
+  "step_2_title": "Permitir fuentes desconocidas",
+  "step_2_desc": "Abra el archivo APK descargado. Si un aviso del sistema bloquea la instalación:",
+  "step_2_bullet_1": "Haga clic en <bold>Configuración</bold> en el cuadro de diálogo que aparece.",
+  "step_2_bullet_2": "Habilite la opción <bold>Autorizar desde esta fuente</bold> (o <bold>Fuentes desconocidas</bold>).",
+  "step_3_title": "Iniciar la instalación",
+  "step_3_desc": "Una vez otorgada la autorización, regrese a la pantalla de instalación y toque <bold>Instalar</bold>. Espere a que se complete el proceso.",
+  "step_4_title": "¡Todo listo!",
+  "step_4_desc": "La aplicación Camertrace ya está instalada. Puede abrirla directamente o encontrarla en sus aplicaciones.",
+  "back_to_login": "Volver al inicio de sesión"
+}
