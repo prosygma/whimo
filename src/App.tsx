@@ -18,6 +18,9 @@ import Analytics from './views/Analytics.tsx';
 import AxiosInterceptor from './components/AxiosInterceptor.tsx';
 import ForgotPassword from './views/ForgotPassword.tsx';
 import Download from './views/Download.tsx';
+import Terms from './views/Terms.tsx';
+import Privacy from './views/Privacy.tsx';
+import AccountDeletion from './views/AccountDeletion.tsx';
 import { ToastContainer } from 'react-toastify';
 import renderToastIcon from './helpers/renderToastIcon.tsx';
 
@@ -46,6 +49,12 @@ const App = () => {
         <LanguageProvider>
           <Routes>
             <Route path="/" element={<RootRedirect />} />
+            {/* Public legal pages: deliberately outside NoAuthLayout, which
+                redirects authenticated users away and would break these links
+                from inside the mobile app or from the Play Store listing. */}
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/account-deletion" element={<AccountDeletion />} />
             <Route element={<NoAuthLayout />}>
               <Route path="/registration" element={<Registration />} />
               <Route path="/login" element={<Login />} />
