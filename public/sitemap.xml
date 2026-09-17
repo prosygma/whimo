@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Public routes only. The /dowload typo route (see App.tsx) is deliberately
+     excluded: the canonical tag handles it, the sitemap must not endorse it. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.camertrace.cm/</loc><lastmod>2026-09-17</lastmod><priority>1.0</priority></url>
+  <url><loc>https://www.camertrace.cm/login</loc><lastmod>2026-09-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.camertrace.cm/registration</loc><lastmod>2026-09-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.camertrace.cm/download</loc><lastmod>2026-09-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.camertrace.cm/forgot-password</loc><lastmod>2026-09-17</lastmod><priority>0.3</priority></url>
+  <url><loc>https://www.camertrace.cm/terms</loc><lastmod>2026-09-17</lastmod><priority>0.3</priority></url>
+  <url><loc>https://www.camertrace.cm/privacy</loc><lastmod>2026-09-17</lastmod><priority>0.3</priority></url>
+  <url><loc>https://www.camertrace.cm/account-deletion</loc><lastmod>2026-09-17</lastmod><priority>0.3</priority></url>
+</urlset>

@@ -20,7 +20,13 @@ export const LanguageProvider: React.FC<PropsWithChildren> = ({ children }) => {
   useEffect(() => {
     const handleLanguageChange = (lng: string) => {
       setCurrentLanguage(lng);
+      // Keep <html lang> truthful: index.html ships lang="fr" for crawlers, but
+      // the rendered UI can be en/es, and a mismatch misleads screen readers
+      // and translation tooling.
+      document.documentElement.lang = lng;
     };
+
+    document.documentElement.lang = i18n.language;
 
     i18n.on('languageChanged', handleLanguageChange);
 

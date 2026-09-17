@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Authenticated areas. These all bounce to /login for anonymous visitors, so
+# crawling them only burns crawl budget and manufactures /login duplicates.
+Disallow: /oauth/
+Disallow: /transactions
+Disallow: /balance
+Disallow: /analytics
+Disallow: /settings
+
+Sitemap: https://www.camertrace.cm/sitemap.xml

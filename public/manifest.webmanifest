@@ -1,0 +1,22 @@
+{
+  "name": "CamerTrace — Traçabilité du cacao et du café",
+  "short_name": "CamerTrace",
+  "description": "Traçabilité du cacao et du café au Cameroun : géolocalisation des parcelles, conformité RDUE et rapports de traçabilité pour producteurs, coopératives et exportateurs.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FFFFFF",
+  "theme_color": "#3D603A",
+  "categories": ["business", "productivity"],
+  "icons": [
+    { "src": "/favicon-32.png", "type": "image/png", "sizes": "32x32" },
+    { "src": "/favicon-64.png", "type": "image/png", "sizes": "64x64" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any" },
+    { "src": "/icon-maskable-192.png", "type": "image/png", "sizes": "192x192", "purpose": "maskable" },
+    { "src": "/icon-maskable-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}

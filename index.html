@@ -1,34 +1,123 @@
 <!doctype html>
-<html lang="en">
+<!-- lang is set to the app's default here for crawlers and for the first paint;
+     LanguageProvider rewrites it at runtime when the active locale differs. -->
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-    <link rel="icon" type="image/svg+xml" href="/cicc.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#3D603A" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CAMERTRACE</title>
-    <meta name="description" content="CAMERTRACE - Register transactions, upload farm data, and download traceability reports for EU compliance." />
 
-    <!-- Open Graph / Facebook -->
+    <title>CamerTrace — Traçabilité du cacao et du café au Cameroun (RDUE)</title>
+    <meta
+      name="description"
+      content="Traçabilité du cacao et du café au Cameroun : géolocalisation des parcelles, conformité RDUE et rapports de traçabilité pour producteurs, coopératives et exportateurs."
+    />
+    <link rel="canonical" href="https://www.camertrace.cm/" />
+
+    <!-- Open Graph / Facebook / WhatsApp.
+         NB: og:image must be an ABSOLUTE url — scrapers do not reliably resolve
+         relative ones. Keep twitter:card as "summary" until a 1200x630 share
+         card exists; "summary_large_image" renders a square icon badly. -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://cicc.prosygma-cm.com" />
-    <meta property="og:title" content="CAMERTRACE - What is my origin" />
-    <meta property="og:description" content="Register transactions, upload farm data, and download traceability reports for EU compliance." />
-    <meta property="og:image" content="/assets/cicc.png" />
+    <meta property="og:site_name" content="CamerTrace" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:url" content="https://www.camertrace.cm/" />
+    <meta property="og:title" content="CamerTrace — Traçabilité du cacao et du café au Cameroun" />
+    <meta
+      property="og:description"
+      content="Géolocalisation des parcelles, conformité RDUE et rapports de traçabilité pour les producteurs, coopératives et exportateurs de cacao et de café au Cameroun."
+    />
+    <meta property="og:image" content="https://www.camertrace.cm/camertrace-512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Emblème CamerTrace : cabosse de cacao et grain de café" />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://cicc.prosygma-cm.com" />
-    <meta name="twitter:title" content="CAMERTRACE - What is my origin" />
-    <meta name="twitter:description" content="Register transactions, upload farm data, and download traceability reports for EU compliance." />
-    <meta name="twitter:image" content="/assets/cicc.png" />
-    <!-- <title>whimo</title> -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://www.camertrace.cm/" />
+    <meta name="twitter:title" content="CamerTrace — Traçabilité du cacao et du café au Cameroun" />
+    <meta
+      name="twitter:description"
+      content="Géolocalisation des parcelles, conformité RDUE et rapports de traçabilité pour les filières cacao et café au Cameroun."
+    />
+    <meta name="twitter:image" content="https://www.camertrace.cm/camertrace-512.png" />
+
+    <!-- Structured data. This is the only semantic content that survives the SPA
+         problem: it is static html, so every crawler reads it without running JS. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.camertrace.cm/#organization",
+            "name": "CamerTrace",
+            "url": "https://www.camertrace.cm/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.camertrace.cm/icon-512.png",
+              "width": 512,
+              "height": 512
+            },
+            "areaServed": { "@type": "Country", "name": "Cameroun" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.camertrace.cm/#website",
+            "name": "CamerTrace",
+            "url": "https://www.camertrace.cm/",
+            "publisher": { "@id": "https://www.camertrace.cm/#organization" },
+            "inLanguage": ["fr", "en", "es"]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "CamerTrace",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Android, Web",
+            "url": "https://www.camertrace.cm/",
+            "inLanguage": "fr",
+            "publisher": { "@id": "https://www.camertrace.cm/#organization" },
+            "description": "Traçabilité du cacao et du café au Cameroun : géolocalisation des parcelles, conformité RDUE et rapports de traçabilité, de la parcelle à l'exportation.",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "XAF" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!--
+      The static markup below is the hero copy rendered as real html. React
+      replaces it entirely on mount; it exists so that crawlers which do not
+      execute JS (and users on slow connections) still get the page's substance
+      instead of an empty div.
+
+      It is French-only and must be kept in step by hand with the
+      hero_title / hero_subtitle keys in public/locales/fr/common.json.
+    -->
+    <div id="root">
+      <div style="font-family: 'Fira Sans', system-ui, sans-serif; text-align: center; padding: 3rem 1.5rem; color: #22381f">
+        <p style="font-size: 2rem; font-weight: 600; margin: 0 0 0.75rem">CamerTrace</p>
+        <h1 style="font-size: 1.25rem; font-weight: 500; margin: 0 0 0.75rem">
+          Traçabilité du cacao et du café au Cameroun
+        </h1>
+        <p style="margin: 0 auto; max-width: 34rem">
+          Conformité RDUE pour les producteurs, coopératives et exportateurs : géolocalisation des parcelles et preuve
+          zéro déforestation.
+        </p>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
