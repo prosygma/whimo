@@ -37,7 +37,7 @@ const NewPasswordForm: React.FC<Props> = ({ onContinue, disableSubmit = false })
   return (
     <>
       <div>
-        <h1 className="text-headline-1 mb-2">{t('new_password_header')}</h1>
+        <h2 className="text-headline-1 mb-2">{t('new_password_header')}</h2>
         <p className="text-body-m text-gray-60">{t('new_password_description')}</p>
       </div>
       <form id="newPasswordForm" className="[&>*]:mb-6 [&>*]:last:mb-0" onSubmit={handleSubmit(submitFormHandler)}>

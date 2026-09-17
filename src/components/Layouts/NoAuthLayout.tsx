@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useTokens } from '../../hooks/useTokens.ts';
 import { authGoogle } from '../../api/auth.ts';
 
-import logo from '../../assets/cicc.png';
+import emblem from '../../assets/camertrace-emblem.png';
 
 const NoAuthLayout: React.FC = () => {
   const { t } = useTranslation('common');
@@ -45,22 +45,38 @@ const NoAuthLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-[500px_1fr] xl:grid-cols-[708px_1fr]">
-      <div className="px-6 py-12 lg:px-10 lg:py-16 flex flex-col justify-between items-center gap-8 text-white text-center relative bg-[url(/src/assets/whimo_logo.svg),linear-gradient(to_bottom,_var(--color-sea-blue),_var(--color-berry-blue))] bg-center bg-cover bg-no-repeat min-h-[450px] lg:min-h-screen">
-        <div className="flex-1 flex flex-col justify-center items-center gap-6 lg:gap-8">
-          <div className="flex flex-col items-center">
-            <img
-              src={logo}
-              alt="CICC Logo"
-              className="w-40 h-40 lg:w-60 lg:h-60 object-contain rounded-full shadow-2xl animate-[fade-up_1s_ease-out] border-4 border-white/20"
-            />
+      <div className="px-6 py-12 lg:px-10 lg:py-16 flex flex-col justify-between items-center gap-8 text-white text-center relative overflow-hidden bg-linear-to-b from-primary to-surface-dark min-h-[450px] lg:min-h-screen">
+        {/* Oversized, faded emblem — replaces the old WHIMO "W" watermark.
+            aria-hidden because it is pure decoration; the real logo below
+            carries the alt text. */}
+        <img
+          src={emblem}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute -right-1/3 top-1/2 -translate-y-1/2 w-[130%] max-w-none opacity-[0.07]"
+        />
+
+        <div className="relative flex-1 flex flex-col justify-center items-center gap-6 lg:gap-8">
+          {/* White disc behind the mark: the emblem is multicoloured and its
+              darkest element is a forest green that would otherwise disappear
+              into the green gradient. */}
+          <div className="rounded-full bg-white p-6 lg:p-7 shadow-xl animate-fade-up">
+            <img src={emblem} alt={t('logo_alt')} className="w-24 lg:w-32 h-auto object-contain" />
           </div>
-          <p className="uppercase text-[22px] lg:text-[26px] leading-5.5">
-            <span className="block text-[48px] lg:text-[70px] leading-tight lg:leading-13.5 font-semibold mb-2">CAMERTRACE</span>What is my origin
-          </p>
-          <p className="max-w-117 opacity-80 text-sm lg:text-base">{t('splash_description')}</p>
+
+          <div className="flex flex-col items-center gap-3">
+            {/* The brand name is real, selectable, translatable text rather than
+                pixels baked into the logo — so it appears exactly once on the
+                page and search engines can actually read it. */}
+            <p className="text-[34px] lg:text-[44px] leading-none font-semibold tracking-wide">CamerTrace</p>
+            <h1 className="max-w-117 text-[20px] lg:text-[24px] leading-snug font-medium">{t('hero_title')}</h1>
+            <p className="max-w-117 text-sm lg:text-base opacity-80">{t('hero_subtitle')}</p>
+          </div>
+
+          <p className="max-w-117 opacity-70 text-sm">{t('splash_description')}</p>
         </div>
 
-        <div className="w-full mt-auto pt-6 border-t border-white/15">
+        <div className="relative w-full mt-auto pt-6 border-t border-white/15">
           <Link
             to="/download"
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-sm transition-all shadow-sm backdrop-blur-xs hover:scale-105"

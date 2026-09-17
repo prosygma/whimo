@@ -108,17 +108,17 @@ const Login: React.FC = () => {
     <>
       <div className="flex-1 flex flex-col gap-8 w-full max-w-123 pt-4 lg:pt-0 mx-auto px-4 lg:px-0">
         <div>
-          <h1 className="text-headline-1 mb-2">{t('login_header')}</h1>
+          <h2 className="text-headline-1 mb-2">{t('login_header')}</h2>
           <p className="text-body-m text-gray-60">{t('login_description')}</p>
           <div className="pt-3 flex">
             <button
-              className={`flex-1 py-3 text-center text-body-medium-m text-sea-blue ${loginMethod === 'email' ? 'border-b-2 border-sea-blue' : 'border-b border-gray-10'}`}
+              className={`flex-1 py-3 text-center text-body-medium-m text-primary ${loginMethod === 'email' ? 'border-b-2 border-primary' : 'border-b border-gray-10'}`}
               onClick={() => setLoginMethod('email')}
             >
               {t('email_login_tab')}
             </button>
             <button
-              className={`flex-1 py-3 text-center text-body-medium-m text-sea-blue ${loginMethod === 'phone' ? 'border-b-2 border-sea-blue' : 'border-b border-gray-10'}`}
+              className={`flex-1 py-3 text-center text-body-medium-m text-primary ${loginMethod === 'phone' ? 'border-b-2 border-primary' : 'border-b border-gray-10'}`}
               onClick={() => setLoginMethod('phone')}
             >
               {t('phone_login_tab')}

@@ -28,7 +28,7 @@ const ForgotPasswordForm: React.FC<Props> = ({ onContinue, mode, setMode }) => {
   return (
     <>
       <div>
-        <h1 className="text-headline-1 mb-2">{t('forgot_password_header')}</h1>
+        <h2 className="text-headline-1 mb-2">{t('forgot_password_header')}</h2>
         <p className="text-body-m text-gray-60">{t('forgot_password_description')}</p>
       </div>
       <form id="forgotPasswordForm">
