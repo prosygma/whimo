@@ -99,21 +99,21 @@ const Transactions: React.FC = () => {
       <div className="flex px-10 border-b-2 border-gray-5">
         <div className="flex-1 flex gap-10">
           <button
-            className={`flex gap-1 items-center text-center text-body-medium-m border-b-2 ${!transactionActionTab ? 'text-sea-blue border-sea-blue' : 'text-gray-50 border-transparent'}`}
+            className={`flex gap-1 items-center text-center text-body-medium-m border-b-2 ${!transactionActionTab ? 'text-primary border-primary' : 'text-gray-50 border-transparent'}`}
             onClick={() => setTransactionActionTab(null)}
           >
             <Squares2X2Icon className="size-6" />
             {t('action_tab_all')}
           </button>
           <button
-            className={`flex gap-1 items-center text-center text-body-medium-m border-b-2 ${transactionActionTab === 'buying' ? 'text-sea-blue  border-sea-blue' : 'text-gray-50 border-transparent'}`}
+            className={`flex gap-1 items-center text-center text-body-medium-m border-b-2 ${transactionActionTab === 'buying' ? 'text-primary  border-primary' : 'text-gray-50 border-transparent'}`}
             onClick={() => setTransactionActionTab('buying')}
           >
             <ArrowDownCircleIcon className="size-6" />
             {t('action_tab_buying')}
           </button>
           <button
-            className={`flex gap-1 items-center text-center text-body-medium-m border-b-2 ${transactionActionTab === 'selling' ? 'text-sea-blue border-sea-blue' : 'text-gray-50 border-transparent'}`}
+            className={`flex gap-1 items-center text-center text-body-medium-m border-b-2 ${transactionActionTab === 'selling' ? 'text-primary border-primary' : 'text-gray-50 border-transparent'}`}
             onClick={() => setTransactionActionTab('selling')}
           >
             <ArrowUpCircleIcon className="size-6" />

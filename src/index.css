@@ -2,16 +2,6 @@
 
 @theme {
     --color-*: initial;
-    --color-plum-purple: #720062;
-    --color-mulberry-purple: #901F82;
-    --color-sea-blue: #298FC2;
-    --color-sea-blue-hover: #47ADE0;
-    --color-sea-blue-disabled: #94C7E1;
-    --color-sky-blue: #59CBE8;
-    --color-midnight-blue: #002746;
-    --color-berry-blue: #003964;
-    --color-sand-brown: #DEDAD4;
-    --color-birch-white: #ECEAE5;
     --color-white: #FFFFFF;
     --color-gray-5: #F9F9F9;
     --color-gray-10: #E5E5E5;
@@ -30,11 +20,93 @@
     --color-light-green: #EEFAEE;
     --color-light-orange: #FDF7EF;
     --color-light-red: #FAEEEE;
-    --color-light-blue: #EEF6FA;
-    --color-midnight-blue-backdrop: #00274633;
-    --color-menu-item-icon-inactive: #82A9C8;
+
+    /* ===============================================================
+     * CamerTrace brand palette — derived from the logo emblem.
+     *
+     * Careful when renaming or removing anything here: `--color-*: initial`
+     * above wipes Tailwind's defaults, so a utility class naming a token that
+     * does not exist emits NO css, NO warning, and still builds green. A typo
+     * is invisible until someone looks at the page. Verify against the BUILT
+     * stylesheet, not the source.
+     * =============================================================== */
+
+    /* Brand / primary — forest green from the cocoa pod */
+    --color-primary: #3D603A;           /* white-on: 7.16:1 AAA */
+    --color-primary-hover: #4E7A4A;     /* white-on: 4.99:1 AA  */
+    --color-primary-disabled: #9CB899;  /* disabled, exempt     */
+    --color-primary-active: #22381F;    /* white-on: 12.70:1    */
+    --color-primary-subtle: #EEF4ED;    /* primary-on: 6.41:1   */
+
+    /* Surfaces */
+    --color-surface-dark: #22381F;
+    --color-surface-dark-backdrop: #22381F33;
+    --color-surface-warm: #F5F1EC;
+    --color-border-warm: #DEDAD4;
+
+    /* Sidebar navigation — ratios measured against --color-surface-dark */
+    --color-nav-active: #C3D1A0;        /* 7.83:1 on surface-dark */
+    --color-nav-inactive: #8FA06A;      /* 4.48:1 on surface-dark */
+
+    /* Accents — STRICTLY BOUNDED. Nothing lints this; the comment is the control.
+     *   accent      #F1872D  2.55:1 on white. NEVER text on white, never white
+     *                        text on it. Permitted: the 4px inset nav bar, the
+     *                        active-nav gradient, icons on surface-dark (4.99:1).
+     *   accent-deep #8A4A12  6.84:1 on white. The text-safe orange sibling.
+     *   accent-soft #A1AE72  2.38:1 on white. Decorative fills/dividers only.
+     *   secondary   #744D30  7.38:1 on white. Safe for text and fills.
+     */
+    --color-accent: #F1872D;
+    --color-accent-deep: #8A4A12;
+    --color-accent-soft: #A1AE72;
+    --color-secondary: #744D30;
+
+    /* Traceability status — deliberately NOT folded into the brand palette.
+     * Green/orange/brown do not separate under deuteranopia and this is a
+     * four-way categorical scale: chrome gets branded, data keeps its hue
+     * spacing. `conditional` and `success-text` are darkened from the old
+     * values to clear AA on their chips (were 3.24:1 and 2.18:1). */
+    --color-traceability-full: #29C229;
+    --color-traceability-conditional: #1F6F8B;
+    --color-traceability-partial: #901F82;
+    --color-traceability-incomplete: #22381F;
+    --color-success-text: #1B7F1B;
+
+    /* Status chip tints */
+    --color-tint-full: #EAF4EA;
+    --color-tint-conditional: #E9F1F4;
+    --color-tint-partial: #F4E9F2;
+    --color-tint-incomplete: #ECEFEA;
+
+    /* Note / toast borders */
+    --color-border-info: #D8E6EC;
+    --color-border-success: #DAF4DA;
+    --color-border-warning: #FAEEDD;
+    --color-border-error: #F4DADA;
+
+    /* Hero logo entrance. `animate-[fade-up_1s_ease-out]` was already in use
+     * at NoAuthLayout.tsx but the keyframe was defined NOWHERE, so it was a
+     * silent no-op. Declaring it here gives a real `animate-fade-up` utility. */
+    --animate-fade-up: fade-up 1s ease-out;
 
     --font-fira-sans: "Fira Sans", system-ui, Avenir, Helvetica;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-up {
+        animation: none;
+    }
 }
 
 @keyframes shimmer {
@@ -141,7 +213,6 @@
     font-weight: 400;
     font-style: normal;
 
-    color-scheme: light dark;
     color: var(--color-gray-90);
     background-color: var(--color-white);
 
@@ -151,7 +222,7 @@
     -moz-osx-font-smoothing: grayscale;
 
     --toastify-color-success: theme(--color-light-green);
-    --toastify-color-info: theme(--color-light-blue);
+    --toastify-color-info: theme(--color-primary-subtle);
     --toastify-color-warning: theme(--color-light-orange);
     --toastify-color-error: theme(--color-light-red);
     --toastify-toast-shadow: none;
@@ -166,16 +237,16 @@
     }
 
     .Toastify__toast--success {
-        border: 1px solid #DAF4DA;
+        border: 1px solid var(--color-border-success);
     }
     .Toastify__toast--info {
-        border: 1px solid #DAECF4;
+        border: 1px solid var(--color-border-info);
     }
     .Toastify__toast--warning {
-        border: 1px solid #FAEEDD;
+        border: 1px solid var(--color-border-warning);
     }
     .Toastify__toast--error {
-        border: 1px solid #F4DADA;
+        border: 1px solid var(--color-border-error);
     }
 }
 

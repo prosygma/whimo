@@ -18,7 +18,7 @@ const badgeVariants = cva('w-min text-nowrap px-2 py-1 rounded-sm text-body-medi
     },
     automatic: {
       true: '[&]:text-gray-90 [&]:bg-gray-10',
-      recorded: '[&]:text-berry-blue [&]:bg-light-blue',
+      recorded: '[&]:text-primary-active [&]:bg-primary-subtle',
     },
   },
 });

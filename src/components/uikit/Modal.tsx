@@ -39,7 +39,7 @@ const Modal: React.FC<Props> & CompoundComponentProps = ({ isOpen, children }) =
   if (!isOpen) return null;
 
   return createPortal(
-    <div className="fixed w-full h-full flex justify-center items-center bg-midnight-blue-backdrop inset-0">
+    <div className="fixed w-full h-full flex justify-center items-center bg-surface-dark-backdrop inset-0">
       <div className="w-110 bg-white rounded-lg [&>*]:p-6 [&>*]:border-b-2 [&>*]:border-b-gray-5 [&>*]:last:border-none transition-[height] duration-500">
         {children}
       </div>

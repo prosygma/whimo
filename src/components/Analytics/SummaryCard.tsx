@@ -12,8 +12,8 @@ interface Props {
 const SummaryCard: React.FC<Props> = ({ Icon, summaryData, summaryTitle, description }) => {
   return (
     <div className="px-10 py-8 flex items-center gap-4 border-r-2 border-gray-5 last:border-r-none">
-      <div className="bg-light-blue p-3 rounded-sm shrink-0">
-        <Icon className="size-6 text-sea-blue" />
+      <div className="bg-primary-subtle p-3 rounded-sm shrink-0">
+        <Icon className="size-6 text-primary" />
       </div>
       <div>
         <p className="text-headline-2">{summaryData}</p>

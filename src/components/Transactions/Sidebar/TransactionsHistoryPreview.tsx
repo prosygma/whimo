@@ -51,7 +51,7 @@ const TransactionsHistoryPreview: React.FC<Props> = ({
       {showViewAllHistoryButton && (
         <button
           onClick={switchToSupplierHistory}
-          className="absolute bottom-0 w-full h-15 flex justify-center items-center outline-none bg-white text-button-m text-sea-blue shadow-[0_-4px_12px_0_#1018280F]"
+          className="absolute bottom-0 w-full h-15 flex justify-center items-center outline-none bg-white text-button-m text-primary shadow-[0_-4px_12px_0_#1018280F]"
         >
           {t('view_all_history')}
         </button>

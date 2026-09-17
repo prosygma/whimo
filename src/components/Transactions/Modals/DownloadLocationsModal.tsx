@@ -56,7 +56,7 @@ const DownloadLocationsModal: React.FC<Props> = ({ transactionId, isOpen, onClos
         <div className="shimmer h-5.5 w-[70%] rounded-sm" />
       ) : (
         Boolean(headerData.fullTraceability) && (
-          <li className="list-disc marker:text-sea-blue">
+          <li className="list-disc marker:text-primary">
             <Trans
               ns="transactions"
               i18nKey="full_traceability"
@@ -70,7 +70,7 @@ const DownloadLocationsModal: React.FC<Props> = ({ transactionId, isOpen, onClos
         <div className="shimmer h-5.5 w-[70%] rounded-sm" />
       ) : (
         Boolean(headerData.manualUpload) && (
-          <li className="list-disc marker:text-sea-blue">
+          <li className="list-disc marker:text-primary">
             <Trans
               ns="transactions"
               i18nKey="manual_upload"
@@ -84,7 +84,7 @@ const DownloadLocationsModal: React.FC<Props> = ({ transactionId, isOpen, onClos
         <div className="shimmer h-5.5 w-[70%] rounded-sm" />
       ) : (
         Boolean(headerData.noLocations) && (
-          <li className="list-disc marker:text-sea-blue">
+          <li className="list-disc marker:text-primary">
             <Trans
               ns="transactions"
               i18nKey="no_locations"
