@@ -10,7 +10,9 @@ import {
   Squares2X2Icon,
 } from '@heroicons/react/24/outline';
 import NotificationDrawer from '../NotificationDrawer/NotificationDrawer.tsx';
-import { Outlet } from 'react-router';
+import { Link, Outlet } from 'react-router';
+
+import emblem from '../../assets/camertrace-emblem.png';
 
 const DashboardLayout: React.FC = () => {
   const { t } = useTranslation('common');
@@ -19,8 +21,11 @@ const DashboardLayout: React.FC = () => {
 
   return (
     <div className="grid grid-cols-[280px_auto]">
-      <div className="bg-midnight-blue text-white py-10 flex flex-col gap-10 sticky top-0 h-min min-h-screen">
-        <div className="px-8 text-sea-blue font-semibold text-4xl select-none">WHIMO</div>
+      <div className="bg-surface-dark text-white py-10 flex flex-col gap-10 sticky top-0 h-min min-h-screen">
+        <Link to="/transactions" className="px-8 flex items-center gap-3 outline-none">
+          <img src={emblem} alt="" aria-hidden="true" className="w-10 h-auto object-contain shrink-0" />
+          <span className="text-white font-semibold text-3xl select-none tracking-wide">CamerTrace</span>
+        </Link>
         <nav className="flex-1 flex flex-col gap-2">
           <MenuItem
             showActiveState={!notificationsOpen}
@@ -36,7 +41,7 @@ const DashboardLayout: React.FC = () => {
           />
           <button
             onClick={() => setNotificationsOpen(true)}
-            className={`${notificationsOpen && 'active'} outline-none px-8 py-3 flex items-center gap-3 text-button-m text-menu-item-icon-inactive hover:text-sky-blue hover:[&>p]:text-white hover:shadow-[4px_0_0_0_var(--color-sea-blue)_inset] [&.active]:text-sky-blue [&.active]:shadow-[4px_0_0_0_var(--color-sea-blue)_inset] [&.active>p]:text-white [&.active]:bg-linear-to-r [&.active]:from-[#298FC24D] [&.active]:to-transparent`}
+            className={`${notificationsOpen && 'active'} outline-none px-8 py-3 flex items-center gap-3 text-button-m text-nav-inactive hover:text-nav-active hover:[&>p]:text-white hover:shadow-[4px_0_0_0_var(--color-accent)_inset] [&.active]:text-nav-active [&.active]:shadow-[4px_0_0_0_var(--color-accent)_inset] [&.active>p]:text-white [&.active]:bg-linear-to-r [&.active]:from-accent/20 [&.active]:to-transparent`}
           >
             <BellIcon className="size-7" />
             <p>{t('notifications')}</p>
@@ -56,8 +61,8 @@ const DashboardLayout: React.FC = () => {
         </nav>
         <div className="flex flex-col gap-2">
           <a
-            className="px-8 py-3 flex items-center gap-3 text-button-m text-menu-item-icon-inactive hover:text-sky-blue hover:[&>p]:text-white"
-            href="mailto:whimoapp@gmail.com?subject=WHIMO%20App%20Feedback"
+            className="px-8 py-3 flex items-center gap-3 text-button-m text-nav-inactive hover:text-nav-active hover:[&>p]:text-white"
+            href="mailto:contact@camertrace.cm?subject=CamerTrace%20Web%20-%20Retour%20utilisateur"
           >
             <ChatBubbleLeftEllipsisIcon className="size-7" />
             <p>{t('feedback')}</p>
