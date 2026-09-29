@@ -1,6 +1,12 @@
 import type { TraceabilityCountsResponsePayload, TraceabilityStatusEnum } from '../api/types/transactionTypes.ts';
 import i18n from '../i18n.ts';
-import { traceabilityChartColors } from '../constants/chartColors.ts';
+
+const countsReference: Record<TraceabilityStatusEnum, Record<string, string>> = {
+  full: { color: '#29C229' },
+  conditional: { color: '#298FC2' },
+  partial: { color: '#901F82' },
+  incomplete: { color: '#002746' },
+};
 
 export const buildTraceabilityCountChartDataset = (data?: TraceabilityCountsResponsePayload) => {
   let total = 0;
@@ -18,7 +24,7 @@ export const buildTraceabilityCountChartDataset = (data?: TraceabilityCountsResp
 
       labels.push(i18n.t(key, { context: 'short', ns: 'common' }));
       dataset.data.push(count);
-      dataset.backgroundColor.push(traceabilityChartColors[key as TraceabilityStatusEnum]);
+      dataset.backgroundColor.push(countsReference[key as TraceabilityStatusEnum].color);
       total += count;
     }
   }

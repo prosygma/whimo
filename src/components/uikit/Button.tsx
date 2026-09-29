@@ -25,9 +25,9 @@ type Props = ButtonProps &
 const buttonVariants = cva('flex gap-2 items-center justify-center text-button-m', {
   variants: {
     primary: {
-      true: 'text-white bg-primary hover:bg-primary-hover disabled:bg-primary-disabled active:bg-primary-active',
+      true: 'text-white bg-sea-blue hover:bg-sea-blue-hover disabled:bg-sea-blue-disabled active:bg-berry-blue',
       false:
-        'border border-gray-10 hover:border-primary-hover active:border-primary disabled:text-gray-30 disabled:border-gray-10 shadow-[0_1px_2px_0_#1018280D] disabled:shadow-none active:shadow-none',
+        'border border-gray-10 hover:border-sea-blue-hover active:border-sea-blue disabled:text-gray-30 disabled:border-gray-10 shadow-[0_1px_2px_0_#1018280D] disabled:shadow-none active:shadow-none',
     },
     ghost: {
       true: 'bg-transparent hover:bg-transparent disabled:bg-transparent active:bg-transparent border-none',
@@ -45,12 +45,12 @@ const buttonVariants = cva('flex gap-2 items-center justify-center text-button-m
       primary: true,
       ghost: true,
       class:
-        '[&]:text-primary [&]:hover:text-primary-hover [&]:disabled:text-primary-disabled [&]:active:text-primary-active',
+        '[&]:text-sea-blue [&]:hover:text-sea-blue-hover [&]:disabled:text-sea-blue-disabled [&]:active:text-berry-blue',
     },
     {
       primary: false,
       ghost: true,
-      class: '[&]:hover:text-primary-hover [&]:disabled:text-gray-30 [&]:active:text-primary',
+      class: '[&]:hover:text-sea-blue-hover [&]:disabled:text-gray-30 [&]:active:text-sea-blue',
     },
     {
       iconButton: true,

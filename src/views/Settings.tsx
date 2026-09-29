@@ -41,19 +41,19 @@ const Settings: React.FC = () => {
           <nav className="flex-1 flex flex-col">
             <NavLink
               to="/settings/info"
-              className="px-10 py-5 flex gap-4 text-button-m text-gray-60 border-b-2 border-gray-5 [&.active]:bg-primary-subtle [&.active]:text-gray-90 [&.active]:border-transparent [&.active>svg]:text-primary"
+              className="px-10 py-5 flex gap-4 text-button-m text-gray-60 border-b-2 border-gray-5 [&.active]:bg-light-blue [&.active]:text-gray-90 [&.active]:border-transparent [&.active>svg]:text-sea-blue"
             >
               <UserCircleIcon className="size-6 shrink-0" /> {t('settings_nav_info')}
             </NavLink>
             <NavLink
               to="/settings/change-password"
-              className="px-10 py-5 flex gap-4 text-button-m text-gray-60 border-b-2 border-gray-5 [&.active]:bg-primary-subtle [&.active]:text-gray-90 [&.active]:border-transparent [&.active>svg]:text-primary"
+              className="px-10 py-5 flex gap-4 text-button-m text-gray-60 border-b-2 border-gray-5 [&.active]:bg-light-blue [&.active]:text-gray-90 [&.active]:border-transparent [&.active>svg]:text-sea-blue"
             >
               <LockClosedIcon className="size-6 shrink-0" /> {t('settings_nav_change_password')}
             </NavLink>
             <NavLink
               to="/settings/language"
-              className="px-10 py-5 flex gap-4 text-button-m text-gray-60 border-b-2 border-gray-5 [&.active]:bg-primary-subtle [&.active]:text-gray-90 [&.active]:border-transparent [&.active>svg]:text-primary"
+              className="px-10 py-5 flex gap-4 text-button-m text-gray-60 border-b-2 border-gray-5 [&.active]:bg-light-blue [&.active]:text-gray-90 [&.active]:border-transparent [&.active>svg]:text-sea-blue"
             >
               <LanguageIcon className="size-6 shrink-0" /> {t('settings_nav_language')}
             </NavLink>

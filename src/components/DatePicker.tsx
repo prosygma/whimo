@@ -33,9 +33,9 @@ const DatePicker: React.FC<Props> = ({rootClassNames = '', ...props }) => {
         weekday: `${defaultClassNames.weekday} font-normal! py-0.5 min-w-9 max-w-9 text-gray-60`,
         day: `${defaultClassNames.day} text-body-sm h-9 text-center`,
         outside: `${defaultClassNames.outside} text-gray-30`,
-        range_start: `${defaultClassNames.range_start} [&.rdp-outside]:bg-primary-disabled bg-primary text-white rounded-lg`,
-        range_end: `${defaultClassNames.range_end} [&.rdp-outside]:bg-primary-disabled bg-primary text-white rounded-lg`,
-        range_middle: `${defaultClassNames.range_middle} bg-primary-subtle`,
+        range_start: `${defaultClassNames.range_start} [&.rdp-outside]:bg-sea-blue-disabled bg-sea-blue text-white rounded-lg`,
+        range_end: `${defaultClassNames.range_end} [&.rdp-outside]:bg-sea-blue-disabled bg-sea-blue text-white rounded-lg`,
+        range_middle: `${defaultClassNames.range_middle} bg-light-blue`,
       }}
       components={{
         Chevron: CustomChevron,

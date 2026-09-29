@@ -32,7 +32,7 @@ const LanguageSwitchModal: React.FC<Props> = ({ isOpen, onClose }) => {
             <button
               key={lang}
               onClick={() => changeLanguage(lang as (typeof availableLanguages)[number])}
-              className="px-6 py-3 rounded-lg border border-gray-10 cursor-pointer flex items-center gap-2 hover:border-primary shadow-[0_1px_2px_0_#1018280D]"
+              className="px-6 py-3 rounded-lg border border-gray-10 cursor-pointer flex items-center gap-2 hover:border-sea-blue shadow-[0_1px_2px_0_#1018280D]"
             >
               <img src={flagMap[lang]} alt={lang} className="size-6 shrink-0" />
               <p className="flex-1 text-left">{t(`language_${lang}`, { ns: 'common' })}</p>

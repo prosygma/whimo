@@ -10,8 +10,8 @@ type Props = VariantProps<typeof noteVariants> & {
 const noteVariants = cva('px-4 py-3 flex gap-2 items-start rounded-lg', {
   variants: {
     type: {
-      info: 'bg-primary-subtle border border-border-info [&>svg]:text-primary',
-      warning: 'bg-light-orange border border-border-warning [&>svg]:text-warning',
+      info: 'bg-light-blue border border-[#DAECF4] [&>svg]:text-sea-blue',
+      warning: 'bg-light-orange border border-[#FAEEDD] [&>svg]:text-warning',
     },
   },
 });

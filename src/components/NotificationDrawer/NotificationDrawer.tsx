@@ -70,13 +70,13 @@ const NotificationDrawer: React.FC<Props> = ({ isOpen, onClose }) => {
       <>
         <div className="flex [&&]:py-0">
           <button
-            className={`flex-1 py-3 text-center text-body-medium-m text-primary border-b-2 ${notificationTab === 'all' ? 'border-primary' : 'border-transparent'}`}
+            className={`flex-1 py-3 text-center text-body-medium-m text-sea-blue border-b-2 ${notificationTab === 'all' ? 'border-sea-blue' : 'border-transparent'}`}
             onClick={() => setNotificationTab('all')}
           >
             {t('all_notifications')}
           </button>
           <button
-            className={`flex-1 py-3 text-center text-body-medium-m text-primary border-b-2 ${notificationTab === 'action' ? 'border-primary' : 'border-transparent'}`}
+            className={`flex-1 py-3 text-center text-body-medium-m text-sea-blue border-b-2 ${notificationTab === 'action' ? 'border-sea-blue' : 'border-transparent'}`}
             onClick={() => setNotificationTab('action')}
           >
             {t('require_actions_notifications')}

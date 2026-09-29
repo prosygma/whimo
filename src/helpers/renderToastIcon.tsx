@@ -14,7 +14,7 @@ const renderToastIcon: RenderToastIcon = ({ type }) => {
     case 'success':
       return <CheckCircleIcon className="size-6 text-success" />;
     case 'info':
-      return <InformationCircleIcon className="size-6 text-primary" />;
+      return <InformationCircleIcon className="size-6 text-sea-blue" />;
     case 'warning':
       return <ExclamationTriangleIcon className="size-6 text-warning" />;
     case 'error':

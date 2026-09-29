@@ -22,7 +22,7 @@ const PhoneInput: React.FC<Props> = ({ label, value, onChange, disabled, error, 
         defaultCountry={'CM'}
         value={value}
         onChange={onChange}
-        className={`flex flex-1 gap-1.5 items-center w-full h-12 max-h-12 outline-0 px-4 py-3.5 rounded-lg bg-gray-5 border ${disabled && 'text-gray-30 border-gray-10!'} ${error ? 'border-error' : 'border-gray-10 focus-within:border-primary hover:border-primary-hover'} [&>*]:outline-0 text-body-s [&_.PhoneInputCountry]:mr-0! [&_.PhoneInputCountryIcon]:shadow-none! ${disabled && '[&_.PhoneInputCountryIcon]:opacity-50!'} [&_.PhoneInputCountrySelectArrow]:hidden! ${readOnly && '[&_.PhoneInputInput]:cursor-default'}`}
+        className={`flex flex-1 gap-1.5 items-center w-full h-12 max-h-12 outline-0 px-4 py-3.5 rounded-lg bg-gray-5 border ${disabled && 'text-gray-30 border-gray-10!'} ${error ? 'border-error' : 'border-gray-10 focus-within:border-sea-blue hover:border-sea-blue-hover'} [&>*]:outline-0 text-body-s [&_.PhoneInputCountry]:mr-0! [&_.PhoneInputCountryIcon]:shadow-none! ${disabled && '[&_.PhoneInputCountryIcon]:opacity-50!'} [&_.PhoneInputCountrySelectArrow]:hidden! ${readOnly && '[&_.PhoneInputInput]:cursor-default'}`}
         disabled={disabled}
         readOnly={readOnly}
       />

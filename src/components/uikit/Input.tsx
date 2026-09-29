@@ -29,11 +29,11 @@ const Input: React.FC<Props> = React.forwardRef(function Input(
         )}
       </div>
       <div
-        className={`flex gap-1.5 items-center w-full h-12 max-h-12 outline-0 px-4 py-3.5 rounded-lg bg-gray-5 border ${disabled && 'text-gray-30 border-gray-10!'} ${error ? 'border-error' : 'border-gray-10 focus-within:border-primary hover:border-primary-hover'}`}
+        className={`flex gap-1.5 items-center w-full h-12 max-h-12 outline-0 px-4 py-3.5 rounded-lg bg-gray-5 border ${disabled && 'text-gray-30 border-gray-10!'} ${error ? 'border-error' : 'border-gray-10 focus-within:border-sea-blue hover:border-sea-blue-hover'}`}
       >
         {StartIcon && (
           <StartIcon
-            className={`size-5 ${disabled ? 'text-gray-30' : 'text-gray-50'} ${!error && '[&:has(+input:focus)]:text-primary'}`}
+            className={`size-5 ${disabled ? 'text-gray-30' : 'text-gray-50'} ${!error && '[&:has(+input:focus)]:text-sea-blue'}`}
           />
         )}
         <input

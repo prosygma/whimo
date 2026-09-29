@@ -51,7 +51,7 @@ const Balance: React.FC = () => {
         <div className="flex gap-6 bg-gray-5 px-10 pb-8">
           {commodityGroupResponse.data.map((commodityGroup) => (
             <div
-              className={`p-3 text-body-medium-s capitalize border cursor-pointer rounded-lg ${commodityGroup.id === commodityGroupId ? 'bg-primary-subtle border-primary' : 'bg-white border-transparent shadow-[0_1px_2px_0_#1018280D]'}`}
+              className={`p-3 text-body-medium-s capitalize border cursor-pointer rounded-lg ${commodityGroup.id === commodityGroupId ? 'bg-light-blue border-sea-blue' : 'bg-white border-transparent shadow-[0_1px_2px_0_#1018280D]'}`}
               key={commodityGroup.id}
               onClick={() => setCommodityGroupId(commodityGroup.id)}
             >
