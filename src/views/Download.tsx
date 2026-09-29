@@ -16,20 +16,20 @@ const Download: React.FC = () => {
     <>
       <div className="flex-1 flex flex-col gap-8 w-full max-w-123 pt-10 lg:pt-24 px-4 lg:px-0 mx-auto">
         <div>
-          <h2 className="text-headline-1 mb-2 text-primary flex items-center gap-2">
+          <h1 className="text-headline-1 mb-2 text-sea-blue flex items-center gap-2">
             <DevicePhoneMobileIcon className="w-8 h-8" strokeWidth={2} />
             {t('title')}
-          </h2>
+          </h1>
           <p className="text-body-m text-gray-60">
             {t('subtitle')}
           </p>
         </div>
 
-        <div className="bg-primary-subtle border border-primary/20 rounded-xl p-5 flex flex-col gap-4">
+        <div className="bg-light-blue border border-sea-blue/20 rounded-xl p-5 flex flex-col gap-4">
           <div className="flex items-start gap-3">
-            <ShieldCheckIcon className="w-6 h-6 text-primary shrink-0 mt-0.5" />
+            <ShieldCheckIcon className="w-6 h-6 text-sea-blue shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-semibold text-surface-dark">{t('banner_title')}</h4>
+              <h3 className="font-semibold text-midnight-blue">{t('banner_title')}</h3>
               <p className="text-sm text-gray-70 mt-1">
                 {t('banner_desc')}
               </p>
@@ -38,7 +38,7 @@ const Download: React.FC = () => {
           
           <a
             href="https://github.com/prosygma/whimo/releases/download/apk-1405/camertrace_1405.apk"
-            className="w-full flex items-center justify-center gap-2 text-white bg-primary hover:bg-primary-hover active:bg-primary-active py-3.5 px-6 rounded-lg font-medium text-center transition-all shadow-md mt-2"
+            className="w-full flex items-center justify-center gap-2 text-white bg-sea-blue hover:bg-sea-blue-hover active:bg-berry-blue py-3.5 px-6 rounded-lg font-medium text-center transition-all shadow-md mt-2"
           >
             <ArrowDownTrayIcon className="w-5 h-5 animate-bounce" />
             {t('download_btn')}
@@ -46,15 +46,15 @@ const Download: React.FC = () => {
         </div>
 
         <div className="flex flex-col gap-6">
-          <h3 className="text-headline-2 text-surface-dark">{t('steps_title')}</h3>
+          <h2 className="text-headline-2 text-midnight-blue">{t('steps_title')}</h2>
           
-          <div className="relative border-l-2 border-primary/20 pl-6 ml-3 flex flex-col gap-8">
+          <div className="relative border-l-2 border-sea-blue/20 pl-6 ml-3 flex flex-col gap-8">
             {/* Step 1 */}
             <div className="relative">
-              <span className="absolute -left-[37px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-semibold text-sm shadow-sm">
+              <span className="absolute -left-[37px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-sea-blue text-white font-semibold text-sm shadow-sm">
                 1
               </span>
-              <h4 className="font-semibold text-surface-dark text-body-l">{t('step_1_title')}</h4>
+              <h3 className="font-semibold text-midnight-blue text-body-l">{t('step_1_title')}</h3>
               <p className="text-sm text-gray-60 mt-1">
                 <Trans
                   ns="download"
@@ -66,10 +66,10 @@ const Download: React.FC = () => {
 
             {/* Step 2 */}
             <div className="relative">
-              <span className="absolute -left-[37px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-semibold text-sm shadow-sm">
+              <span className="absolute -left-[37px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-sea-blue text-white font-semibold text-sm shadow-sm">
                 2
               </span>
-              <h4 className="font-semibold text-surface-dark text-body-l">{t('step_2_title')}</h4>
+              <h3 className="font-semibold text-midnight-blue text-body-l">{t('step_2_title')}</h3>
               <p className="text-sm text-gray-60 mt-1">
                 {t('step_2_desc')}
                 <span className="block mt-2 pl-3 border-l-2 border-gray-20 text-xs text-gray-50 flex flex-col gap-1">
@@ -93,10 +93,10 @@ const Download: React.FC = () => {
 
             {/* Step 3 */}
             <div className="relative">
-              <span className="absolute -left-[37px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-semibold text-sm shadow-sm">
+              <span className="absolute -left-[37px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-sea-blue text-white font-semibold text-sm shadow-sm">
                 3
               </span>
-              <h4 className="font-semibold text-surface-dark text-body-l">{t('step_3_title')}</h4>
+              <h3 className="font-semibold text-midnight-blue text-body-l">{t('step_3_title')}</h3>
               <p className="text-sm text-gray-60 mt-1">
                 <Trans
                   ns="download"
@@ -111,7 +111,7 @@ const Download: React.FC = () => {
               <span className="absolute -left-[37px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-success text-white font-semibold text-sm shadow-sm">
                 <CheckCircleIcon className="w-5 h-5" />
               </span>
-              <h4 className="font-semibold text-success text-body-l">{t('step_4_title')}</h4>
+              <h3 className="font-semibold text-success text-body-l">{t('step_4_title')}</h3>
               <p className="text-sm text-gray-60 mt-1">
                 {t('step_4_desc')}
               </p>

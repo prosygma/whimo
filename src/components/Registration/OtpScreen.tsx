@@ -41,7 +41,7 @@ const OtpScreen: React.FC<Props> = ({ mode, identifier, setMode, onContinue, dis
     <>
       <div className="flex-1 flex flex-col gap-8 w-123 pt-45 mx-10">
         <div>
-          <h2 className="text-headline-1 mb-2">{t(`otp_${mode}_header`)}</h2>
+          <h1 className="text-headline-1 mb-2">{t(`otp_${mode}_header`)}</h1>
           <p className="text-gray-60">{authCompletion ? t('otp_complete_auth_description') : t('otp_common_description', { ns: 'common' })}</p>
         </div>
         <OtpInput

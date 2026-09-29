@@ -139,7 +139,7 @@ const Registration: React.FC = () => {
     <>
       <div className="flex-1 flex flex-col gap-8 w-full max-w-123 pt-4 lg:pt-0 mx-auto px-4 lg:px-0">
         <div>
-          <h2 className="text-headline-1 mb-2">{t('register_header')}</h2>
+          <h1 className="text-headline-1 mb-2">{t('register_header')}</h1>
           <p className="text-body-m text-gray-60">{t('register_description')}</p>
         </div>
         <form id="registrationForm" className="[&>*]:mb-6 [&>*]:last:mb-0" onSubmit={handleSubmit(onSubmit)}>
