@@ -9,7 +9,7 @@ const Checkbox: React.FC<Props> = ({ children, ...props }) => {
       <input className="peer hidden" type="checkbox" {...props} />
       <div
         role="checkbox"
-        className="flex items-center justify-center cursor-pointer size-6 border border-gray-10 rounded-sm hover:border-sea-blue-hover peer-checked:border-none peer-checked:bg-sea-blue peer-checked:hover:bg-sea-blue-hover"
+        className="flex items-center justify-center cursor-pointer size-6 border border-gray-10 rounded-sm hover:border-primary-hover peer-checked:border-none peer-checked:bg-primary peer-checked:hover:bg-primary-hover"
       >
         {props.checked && <CheckIcon className="size-5 text-white" />}
       </div>

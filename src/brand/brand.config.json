@@ -1,0 +1,12 @@
+{
+  "name": "WHIMO",
+  "htmlTitle": "whimo",
+  "tagline": {
+    "en": "What is my origin",
+    "fr": "What is my origin",
+    "es": "What is my origin"
+  },
+  "themeColor": "#298FC2",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap",
+  "feedbackEmail": "whimoapp@gmail.com"
+}

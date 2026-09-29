@@ -1,0 +1,37 @@
+/* ===================================================================
+ * Brand theme — the values a white-label deployment overrides.
+ *
+ * Components only use the semantic names below (bg-primary, text-nav-active…),
+ * never raw colours, so a fork can restyle the whole app by editing this file
+ * together with brand.config.json and the files in src/brand/assets/.
+ *
+ * Status and data-visualisation colours (success, error, traceability…) are
+ * NOT brand colours: they live in src/index.css and src/constants/chartColors.ts.
+ * =================================================================== */
+@theme {
+    /* Primary action colour: buttons, links, active tabs, focus rings */
+    --color-primary: #298FC2;
+    --color-primary-hover: #47ADE0;
+    --color-primary-disabled: #94C7E1;
+    --color-primary-active: #003964;
+    --color-primary-subtle: #EEF6FA;
+
+    /* Dark surfaces: sidebar, tooltips, modal backdrop */
+    --color-surface-dark: #002746;
+    --color-surface-dark-backdrop: #00274633;
+
+    /* Sidebar navigation, drawn on --color-surface-dark */
+    --color-nav-active: #59CBE8;
+    --color-nav-inactive: #82A9C8;
+    --color-accent: #298FC2;         /* active-nav inset bar and gradient */
+    --color-sidebar-wordmark: #298FC2;
+
+    /* Login / registration hero gradient */
+    --color-hero-start: #298FC2;
+    --color-hero-end: #003964;
+
+    --color-border-info: #DAECF4;
+
+    --font-brand: "Fira Sans", system-ui, Avenir, Helvetica;
+    --font-heading: "Fira Sans", system-ui, Avenir, Helvetica;
+}

@@ -3,11 +3,13 @@ import { Link, Navigate, Outlet, useNavigate, useSearchParams } from 'react-rout
 import { useTranslation } from 'react-i18next';
 import { useTokens } from '../../hooks/useTokens.ts';
 import { authGoogle } from '../../api/auth.ts';
+import { brand } from '../../brand';
 
-import logo from '../../assets/cicc.png';
+const heroGradient = 'linear-gradient(to bottom, var(--color-hero-start), var(--color-hero-end))';
+const heroBackground = brand.heroWatermark ? `url("${brand.heroWatermark}"), ${heroGradient}` : heroGradient;
 
 const NoAuthLayout: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
 
   const { isAuthenticated, setTokens } = useTokens();
 
@@ -45,19 +47,23 @@ const NoAuthLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-[500px_1fr] xl:grid-cols-[708px_1fr]">
-      <div className="px-6 py-12 lg:px-10 lg:py-16 flex flex-col justify-between items-center gap-8 text-white text-center relative bg-[url(/src/assets/whimo_logo.svg),linear-gradient(to_bottom,_var(--color-sea-blue),_var(--color-berry-blue))] bg-center bg-cover bg-no-repeat min-h-[450px] lg:min-h-screen">
+      <div
+        className="px-6 py-12 lg:px-10 lg:py-16 flex flex-col justify-between items-center gap-8 text-white text-center relative bg-center bg-cover bg-no-repeat min-h-[450px] lg:min-h-screen"
+        style={{ backgroundImage: heroBackground }}
+      >
         <div className="flex-1 flex flex-col justify-center items-center gap-6 lg:gap-8">
-          <div className="flex flex-col items-center">
+          {brand.heroLogo && (
             <img
-              src={logo}
-              alt="CICC Logo"
-              className="w-40 h-40 lg:w-60 lg:h-60 object-contain rounded-full shadow-2xl animate-[fade-up_1s_ease-out] border-4 border-white/20"
+              src={brand.heroLogo}
+              alt={brand.name}
+              className="w-44 lg:w-64 max-w-full h-auto animate-fade-up"
             />
-          </div>
+          )}
           <p className="uppercase text-[22px] lg:text-[26px] leading-5.5">
-            <span className="block text-[48px] lg:text-[70px] leading-tight lg:leading-13.5 font-semibold mb-2">CAMERTRACE</span>What is my origin
+            <span className="block text-[48px] lg:text-[70px] leading-tight lg:leading-13.5 font-heading font-semibold mb-2">{brand.name}</span>
+            {brand.taglineFor(i18n.language)}
           </p>
-          <p className="max-w-117 opacity-80 text-sm lg:text-base">{t('splash_description')}</p>
+          <p className="max-w-117 opacity-80 text-sm lg:text-base">{brand.heroDescriptionFor(i18n.language) ?? t('splash_description')}</p>
         </div>
 
         <div className="w-full mt-auto pt-6 border-t border-white/15">
