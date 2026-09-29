@@ -59,9 +59,9 @@ const NoAuthLayout: React.FC = () => {
               className="w-44 lg:w-64 max-w-full h-auto animate-fade-up"
             />
           )}
-          <p className="uppercase text-[22px] lg:text-[26px] leading-5.5">
+          <p className="text-[22px] lg:text-[26px] leading-5.5">
             <span className="block text-[48px] lg:text-[70px] leading-tight lg:leading-13.5 font-heading font-semibold mb-2">{brand.name}</span>
-            {brand.taglineFor(i18n.language)}
+            <span className="uppercase">{brand.taglineFor(i18n.language)}</span>
           </p>
           <p className="max-w-117 opacity-80 text-sm lg:text-base">{brand.heroDescriptionFor(i18n.language) ?? t('splash_description')}</p>
         </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import type { LegalSection } from '../../content/tcu.ts';
 import { sectionId } from '../../helpers/sectionId.ts';
 
-import logo from '../../assets/camertrace-wide.png';
+import logo from '../../brand/assets/logo-horizontal.webp';
 
 type Props = {
   title: string;

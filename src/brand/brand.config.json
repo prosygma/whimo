@@ -1,12 +1,17 @@
 {
-  "name": "WHIMO",
-  "htmlTitle": "whimo",
+  "name": "CamerTrace",
+  "htmlTitle": "CamerTrace — Traçabilité du cacao et du café au Cameroun (RDUE)",
   "tagline": {
-    "en": "What is my origin",
-    "fr": "What is my origin",
-    "es": "What is my origin"
+    "fr": "Traçabilité du cacao et du café au Cameroun",
+    "en": "Cocoa and coffee traceability in Cameroon",
+    "es": "Trazabilidad del cacao y el café en Camerún"
   },
-  "themeColor": "#298FC2",
-  "fontsUrl": "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap",
-  "feedbackEmail": "whimoapp@gmail.com"
+  "heroDescription": {
+    "fr": "Suivi et traçabilité de la chaîne d'approvisionnement des coopératives, acheteurs et exportateurs",
+    "en": "Supply chain monitoring and traceability of cooperatives, buyers and exporters",
+    "es": "Monitoreo y trazabilidad de la cadena de suministro de cooperativas, compradores y exportadores"
+  },
+  "themeColor": "#0B6B3A",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap",
+  "feedbackEmail": "contact@camertrace.cm"
 }

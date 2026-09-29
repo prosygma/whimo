@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import logo from '../assets/camertrace-wide.png';
+import logo from '../brand/assets/logo-horizontal.webp';
 
 const CONTACT_EMAIL = 'contact@camertrace.cm';
 

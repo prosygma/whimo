@@ -1,37 +1,34 @@
 /* ===================================================================
- * Brand theme — the values a white-label deployment overrides.
+ * CamerTrace brand theme (overrides the upstream WHIMO defaults).
+ * Source of truth: charte graphique CamerTrace, palette taken from the
+ * CICC seal. Contrast ratios are WCAG 2.x, measured on the named surface.
  *
- * Components only use the semantic names below (bg-primary, text-nav-active…),
- * never raw colours, so a fork can restyle the whole app by editing this file
- * together with brand.config.json and the files in src/brand/assets/.
- *
- * Status and data-visualisation colours (success, error, traceability…) are
- * NOT brand colours: they live in src/index.css and src/constants/chartColors.ts.
+ * Fork-owned file: on upstream merges keep OUR side (see FORK.md).
  * =================================================================== */
 @theme {
-    /* Primary action colour: buttons, links, active tabs, focus rings */
-    --color-primary: #298FC2;
-    --color-primary-hover: #47ADE0;
-    --color-primary-disabled: #94C7E1;
-    --color-primary-active: #003964;
-    --color-primary-subtle: #EEF6FA;
+    /* Vert cabosse */
+    --color-primary: #0B6B3A;           /* white text on it: 6.61:1 AA */
+    --color-primary-hover: #0B7A3B;     /* white text on it: 5.44:1 AA */
+    --color-primary-disabled: #9DC4AE;  /* disabled, exempt */
+    --color-primary-active: #08552E;    /* white text on it: 8.94:1 */
+    --color-primary-subtle: #E8F3EC;    /* primary text on it: 5.81:1 */
 
-    /* Dark surfaces: sidebar, tooltips, modal backdrop */
-    --color-surface-dark: #002746;
-    --color-surface-dark-backdrop: #00274633;
+    /* Vert profond */
+    --color-surface-dark: #1F4D2E;
+    --color-surface-dark-backdrop: #1F4D2E33;
 
-    /* Sidebar navigation, drawn on --color-surface-dark */
-    --color-nav-active: #59CBE8;
-    --color-nav-inactive: #82A9C8;
-    --color-accent: #298FC2;         /* active-nav inset bar and gradient */
-    --color-sidebar-wordmark: #298FC2;
+    /* Sidebar navigation, on surface-dark */
+    --color-nav-active: #F2C94C;        /* 6.13:1 */
+    --color-nav-inactive: #A8C3B1;      /* 5.14:1 */
+    --color-accent: #E0A91B;            /* or des flux: decoration only, 2.13:1 on white */
+    --color-sidebar-wordmark: #FFFFFF;
 
-    /* Login / registration hero gradient */
-    --color-hero-start: #298FC2;
-    --color-hero-end: #003964;
+    /* Login hero */
+    --color-hero-start: #0B6B3A;
+    --color-hero-end: #1F4D2E;
 
-    --color-border-info: #DAECF4;
+    --color-border-info: #CFE3D6;
 
-    --font-brand: "Fira Sans", system-ui, Avenir, Helvetica;
-    --font-heading: "Fira Sans", system-ui, Avenir, Helvetica;
+    --font-brand: "Open Sans", system-ui, Avenir, Helvetica;
+    --font-heading: "Montserrat", "Open Sans", system-ui, Helvetica;
 }
