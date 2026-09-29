@@ -22,7 +22,7 @@ const ForgotPasswordForm: React.FC<Props> = ({ onContinue, mode, setMode }) => {
 
   const submitHandler = (event: React.SyntheticEvent<HTMLButtonElement>): void => {
     event.preventDefault();
-    onContinue(identifier, 'email');
+    onContinue(identifier, mode);
   };
 
   return (

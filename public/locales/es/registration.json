@@ -13,5 +13,6 @@
   "verification_mode_phone": "Recibir por teléfono",
   "otp_email_header": "Revisa tu bandeja de entrada",
   "otp_phone_header": "Revisa tu número de teléfono",
+  "otp_whatsapp_header": "Revisa tu WhatsApp",
   "otp_complete_auth_description": "Introduce la contraseña de un solo uso para completar la autenticación."
 }

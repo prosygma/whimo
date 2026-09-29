@@ -7,6 +7,7 @@ import type {
   UpdateGadgetResponse,
   UserResponse,
 } from './types/userTypes.ts';
+import type { OtpChannel, OtpSentResponse } from './types/registrationTypes.ts';
 
 export const fetchProfileData = async (): Promise<{ data: UserResponse }> => {
   const response = await axiosApi.get<ApiResponse & { data: UserResponse }>('v1/users/profile/');
@@ -22,8 +23,9 @@ export const deleteGadget = async (identifier: string) => {
   await axiosApi.delete('v1/users/gadgets/', { data: { identifier } });
 };
 
-export const sendVerificationCode = async (identifier: string) => {
-  await axiosApi.post('v1/auth/otp/send/', { identifier });
+export const sendVerificationCode = async (identifier: string): Promise<OtpChannel | undefined> => {
+  const response = await axiosApi.post<OtpSentResponse>('v1/auth/otp/send/', { identifier });
+  return response.data?.channel;
 };
 
 export const verifyGadget = async (code: string, identifier: string) => {
@@ -38,8 +40,11 @@ export const deleteAccount = async () => {
   await axiosApi.delete('v1/users/profile/');
 };
 
-export const passwordResetSendOtp = async (data: Pick<PasswordResetPayload, 'identifier'>) => {
-  await axiosApi.post('v1/auth/otp/password-reset/send/', data);
+export const passwordResetSendOtp = async (
+  data: Pick<PasswordResetPayload, 'identifier'>,
+): Promise<OtpChannel | undefined> => {
+  const response = await axiosApi.post<OtpSentResponse>('v1/auth/otp/password-reset/send/', data);
+  return response.data?.channel;
 };
 
 export const passwordResetVerifyOtp = async (data: Pick<PasswordResetPayload, 'identifier' | 'code'>) => {

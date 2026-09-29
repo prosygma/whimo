@@ -13,5 +13,6 @@
   "verification_mode_phone": "Recevoir par téléphone",
   "otp_email_header": "Vérifiez votre boîte email",
   "otp_phone_header": "Vérifiez votre numéro de téléphone",
+  "otp_whatsapp_header": "Vérifiez votre WhatsApp",
   "otp_complete_auth_description": "Saisissez le mot de passe à usage unique pour terminer l’authentification"
 }

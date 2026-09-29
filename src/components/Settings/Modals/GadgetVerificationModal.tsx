@@ -20,7 +20,7 @@ const GadgetVerificationModal: React.FC<Props> = ({ isOpen, onClose, type, ident
   const { t } = useTranslation(['settings', 'common']);
   const [code, setCode] = useState<string>('');
 
-  const { mutate: sendCode, isSuccess } = useMutation({
+  const { mutate: sendCode, isSuccess, data: channel } = useMutation({
     mutationKey: ['sendVerificationCode', type, identifier],
     mutationFn: () => sendVerificationCode(identifier),
     onError: handleError,
@@ -44,7 +44,7 @@ const GadgetVerificationModal: React.FC<Props> = ({ isOpen, onClose, type, ident
 
   return (
     <Modal isOpen={isOpen}>
-      <Modal.ModalHeader onClose={onClose} title={t('gadget_verification_modal_title', { context: type })} />
+      <Modal.ModalHeader onClose={onClose} title={t('gadget_verification_modal_title', { context: channel === 'whatsapp' ? 'whatsapp' : type })} />
       <Modal.ModalBody>
         <div className="flex flex-col gap-6">
           <p className="text-body-m gray-60">{t('otp_common_description', { ns: 'common' })}</p>

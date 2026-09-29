@@ -13,5 +13,6 @@
   "verification_mode_phone": "Get with phone",
   "otp_email_header": "Check your email inbox",
   "otp_phone_header": "Check your phone number",
+  "otp_whatsapp_header": "Check your WhatsApp",
   "otp_complete_auth_description": "Enter the One-time Password to complete authentication"
 }
