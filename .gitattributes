@@ -1,0 +1,6 @@
+# Fork-owned binary brand files: on merges from upstream keep the CamerTrace
+# version (needs `git config merge.ours.driver true`, see scripts/fork-setup.sh).
+src/brand/assets/* merge=ours
+public/favicon* merge=ours
+public/icon-* merge=ours
+public/apple-touch-icon.png merge=ours

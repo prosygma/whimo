@@ -1,0 +1,7 @@
+# Paths owned by the CamerTrace brand overlay (bash glob patterns).
+src/brand/*
+public/favicon*
+public/icon-*
+public/apple-touch-icon.png
+public/manifest.webmanifest
+index.html
