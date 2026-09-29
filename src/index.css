@@ -92,12 +92,6 @@
     --font-fira-sans: "Fira Sans", system-ui, Avenir, Helvetica;
 }
 
-@layer utilities {
-  .rounded-full {
-    border-radius: 15px;
-  }
-}
-
 @keyframes fade-up {
     from {
         opacity: 0;
