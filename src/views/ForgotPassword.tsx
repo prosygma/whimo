@@ -4,6 +4,7 @@ import Button from '../components/uikit/Button.tsx';
 import { useNavigate } from 'react-router';
 import type { OtpModes } from './Registration.tsx';
 import ForgotPasswordForm from '../components/ForgotPassword/ForgotPasswordForm.tsx';
+import type { OtpChannel } from '../api/types/registrationTypes.ts';
 import OtpScreen from '../components/Registration/OtpScreen.tsx';
 import { useMutation } from '@tanstack/react-query';
 import { passwordResetSendOtp, passwordResetSetNewPassword, passwordResetVerifyOtp } from '../api/user.ts';
@@ -18,6 +19,7 @@ const ForgotPassword: React.FC = () => {
   const [code, setCode] = useState<string>('');
   const [otpMode, setOtpMode] = useState<OtpModes>('email');
   const [showOtpScreen, setShowOtpScreen] = useState(false);
+  const [otpChannel, setOtpChannel] = useState<OtpChannel>();
   const [showNewPasswordScreen, setShowNewPasswordScreen] = useState(false);
 
 
@@ -49,7 +51,7 @@ const ForgotPassword: React.FC = () => {
     setShowOtpScreen(true);
     setIdentifier(identifier);
     setOtpMode(mode);
-    await passwordResetSendOtp({ identifier });
+    setOtpChannel(await passwordResetSendOtp({ identifier }));
   };
 
   const onNewPasswordFillProceed = (password: string) => {
@@ -60,6 +62,7 @@ const ForgotPassword: React.FC = () => {
     return (
       <OtpScreen
         mode={otpMode}
+        channel={otpChannel}
         identifier={identifier}
         onContinue={(data) => onOtpCodeSubmit(data)}
         disableSubmit={codeSubmitPending}

@@ -13,6 +13,7 @@
     "verify": "Vérifier",
     "gadget_verification_modal_title_email": "Vérifiez votre boîte email",
     "gadget_verification_modal_title_phone": "Vérifiez vos SMS",
+    "gadget_verification_modal_title_whatsapp": "Vérifiez votre WhatsApp",
     "otp_modal_message": "<wrap>Nous vous avons envoyé un code à <target>{{target}}</target> pour rétablir l'accès à votre compte.</wrap>",
     "change_password_header": "$t(settings_nav_change_password)",
     "current_password": "Mot de passe actuel",

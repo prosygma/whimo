@@ -19,6 +19,7 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import OtpScreen from '../components/Registration/OtpScreen.tsx';
 import { confirmGadget, requestVerificationCode } from '../api/registration.ts';
+import type { OtpChannel } from '../api/types/registrationTypes.ts';
 import handleError from '../helpers/handleError.ts';
 
 export type LoginMethod = 'email' | 'phone';
@@ -48,6 +49,7 @@ const Login: React.FC = () => {
   const [languageModalOpen, setLanguageModalOpen] = useState(false);
   const [showOtpScreen, setShowOtpScreen] = useState(false);
   const [formSubmittedValues, setFormSubmittedValues] = useState<LoginForm>();
+  const [otpChannel, setOtpChannel] = useState<OtpChannel>();
 
   useEffect(() => {
     reset();
@@ -68,7 +70,7 @@ const Login: React.FC = () => {
       ) {
         setShowOtpScreen(true);
         setFormSubmittedValues({ ...variables });
-        await requestVerificationCode(variables.username);
+        setOtpChannel(await requestVerificationCode(variables.username));
       } else {
         handleError(error);
       }
@@ -97,6 +99,7 @@ const Login: React.FC = () => {
     return (
       <OtpScreen
         mode={loginMethod}
+        channel={otpChannel}
         identifier={formSubmittedValues.username}
         onContinue={(data) => submitCode(data)}
         disableSubmit={codeSubmitPending}
