@@ -1,6 +1,6 @@
 import config from './brand.config.json';
 
-type Language = keyof typeof config.tagline;
+type Localized = Record<string, string>;
 
 // Optional brand images: drop a file with one of these names in src/brand/assets/
 // (svg, png or webp) and it is picked up; no code change needed.
@@ -9,6 +9,11 @@ const assets = import.meta.glob<string>('./assets/*.{svg,png,webp}', { eager: tr
 function asset(name: string): string | undefined {
   const match = Object.keys(assets).find((path) => path.replace(/^.*\/|\.[^.]+$/g, '') === name);
   return match ? assets[match] : undefined;
+}
+
+function localized(values: Localized | undefined, language: string): string | undefined {
+  if (!values) return undefined;
+  return values[language.split('-')[0]] ?? values.en;
 }
 
 /**
@@ -25,7 +30,11 @@ export const brand = {
   /** Logo at the top of the sidebar; the name is rendered as text when absent. */
   sidebarLogo: asset('sidebar-logo'),
   taglineFor(language: string): string {
-    const short = language.split('-')[0] as Language;
-    return config.tagline[short] ?? config.tagline.en;
+    return localized(config.tagline, language) ?? '';
+  },
+  /** Optional `heroDescription` in brand.config.json replaces the login hero's
+   *  generic description (common:splash_description). */
+  heroDescriptionFor(language: string): string | undefined {
+    return localized((config as { heroDescription?: Localized }).heroDescription, language);
   },
 };

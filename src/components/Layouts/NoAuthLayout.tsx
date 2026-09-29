@@ -52,7 +52,7 @@ const NoAuthLayout: React.FC = () => {
           <span className="block text-[70px] leading-13.5 font-heading font-semibold mb-2">{brand.name}</span>
           {brand.taglineFor(i18n.language)}
         </p>
-        <p className="max-w-117 opacity-80">{t('splash_description')}</p>
+        <p className="max-w-117 opacity-80">{brand.heroDescriptionFor(i18n.language) ?? t('splash_description')}</p>
       </div>
       <div className="flex flex-col gap-8 mx-auto mb-10">
         <Outlet />
