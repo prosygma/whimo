@@ -48,9 +48,9 @@ const NoAuthLayout: React.FC = () => {
         style={{ backgroundImage: heroBackground }}
       >
         {brand.heroLogo && <img src={brand.heroLogo} alt="" className="w-64 max-w-full" />}
-        <p className="uppercase text-[26px] leading-5.5">
+        <p className="text-[26px] leading-5.5">
           <span className="block text-[70px] leading-13.5 font-heading font-semibold mb-2">{brand.name}</span>
-          {brand.taglineFor(i18n.language)}
+          <span className="uppercase">{brand.taglineFor(i18n.language)}</span>
         </p>
         <p className="max-w-117 opacity-80">{brand.heroDescriptionFor(i18n.language) ?? t('splash_description')}</p>
       </div>
