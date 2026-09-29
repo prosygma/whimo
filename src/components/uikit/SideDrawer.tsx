@@ -69,7 +69,7 @@ const SideDrawer: React.FC<Props> & CompoundComponentProps = ({
       <div className="fixed inset-0 flex">
         {withBackdrop && (
           <div
-            className="fixed inset-0 bg-midnight-blue-backdrop transition-opacity duration-300"
+            className="fixed inset-0 bg-surface-dark-backdrop transition-opacity duration-300"
             onClick={handleBackdropClick}
           />
         )}

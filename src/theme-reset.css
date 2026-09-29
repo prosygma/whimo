@@ -1,0 +1,5 @@
+/* Wipes Tailwind's default palette so only the tokens declared in
+ * src/brand/theme.css and src/index.css exist. Imported before both of them. */
+@theme {
+    --color-*: initial;
+}

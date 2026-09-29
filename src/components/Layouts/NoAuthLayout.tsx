@@ -3,9 +3,13 @@ import { Navigate, Outlet, useNavigate, useSearchParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { useTokens } from '../../hooks/useTokens.ts';
 import { authGoogle } from '../../api/auth.ts';
+import { brand } from '../../brand';
+
+const heroGradient = 'linear-gradient(to bottom, var(--color-hero-start), var(--color-hero-end))';
+const heroBackground = brand.heroWatermark ? `url("${brand.heroWatermark}"), ${heroGradient}` : heroGradient;
 
 const NoAuthLayout: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
 
   const { isAuthenticated, setTokens } = useTokens();
 
@@ -39,9 +43,14 @@ const NoAuthLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen grid grid-cols-[minmax(auto,708px)_1fr]">
-      <div className="px-10 flex flex-col justify-center items-center gap-8 text-white text-center relative bg-[url(/src/assets/whimo_logo.svg),linear-gradient(to_bottom,_var(--color-sea-blue),_var(--color-berry-blue))] bg-center bg-cover bg-no-repeat">
+      <div
+        className="px-10 flex flex-col justify-center items-center gap-8 text-white text-center relative bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: heroBackground }}
+      >
+        {brand.heroLogo && <img src={brand.heroLogo} alt="" className="w-64 max-w-full" />}
         <p className="uppercase text-[26px] leading-5.5">
-          <span className="block text-[70px] leading-13.5 font-semibold mb-2">WHIMO</span>What is my origin
+          <span className="block text-[70px] leading-13.5 font-heading font-semibold mb-2">{brand.name}</span>
+          {brand.taglineFor(i18n.language)}
         </p>
         <p className="max-w-117 opacity-80">{t('splash_description')}</p>
       </div>

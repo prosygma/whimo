@@ -23,10 +23,10 @@ const Tooltip: React.FC<Props> = ({ trigger, side = 'top', children }) => {
             align="center"
             side={side}
             sideOffset={8}
-            className="max-w-62 px-4 py-3 bg-midnight-blue text-body-xs text-white rounded-lg"
+            className="max-w-62 px-4 py-3 bg-surface-dark text-body-xs text-white rounded-lg"
           >
             {children}
-            <TooltipArrow width="18" height="8" className=" fill-midnight-blue" />
+            <TooltipArrow width="18" height="8" className=" fill-surface-dark" />
           </TooltipContent>
         </TooltipPortal>
       </TooltipRoot>

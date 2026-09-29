@@ -42,7 +42,7 @@ const Pagination: React.FC<Props> = ({ paginationData, switchPage }) => {
           {Array.from(Array(paginationData.total_pages)).map((_, index) => (
             <div
               key={index}
-              className={`cursor-pointer size-10 rounded-md flex items-center justify-center text-body-medium-s hover:bg-gray-5 ${paginationData.page === index + 1 && '[&&]:bg-light-blue [&]:text-sea-blue'}`}
+              className={`cursor-pointer size-10 rounded-md flex items-center justify-center text-body-medium-s hover:bg-gray-5 ${paginationData.page === index + 1 && '[&&]:bg-primary-subtle [&]:text-primary'}`}
               onClick={() => switchPage(index + 1)}
             >
               {index + 1}
