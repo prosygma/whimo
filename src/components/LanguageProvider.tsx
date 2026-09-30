@@ -1,21 +1,12 @@
-import React, { useEffect, useState, type PropsWithChildren } from 'react';
+import React, { useEffect, useState, useSyncExternalStore, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { availableLanguages } from '../i18n.ts';
-import { type SupportedLanguage, LanguageContext } from '../contexts/LanguageContext.ts';
-
-export const LANGUAGE_STORAGE_KEY = 'app_language';
+import { getLanguagesState, LANGUAGE_STORAGE_KEY, subscribeLanguages } from '../i18n.ts';
+import { LanguageContext } from '../contexts/LanguageContext.ts';
 
 export const LanguageProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const { i18n } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState<string>(i18n.language);
-
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    if (storedLanguage && availableLanguages.includes(storedLanguage as SupportedLanguage)) {
-      void i18n.changeLanguage(storedLanguage);
-      setCurrentLanguage(storedLanguage);
-    }
-  }, [i18n]);
+  const { languages } = useSyncExternalStore(subscribeLanguages, getLanguagesState);
 
   useEffect(() => {
     const handleLanguageChange = (lng: string) => {
@@ -29,7 +20,7 @@ export const LanguageProvider: React.FC<PropsWithChildren> = ({ children }) => {
     };
   }, [i18n]);
 
-  const changeLanguage = async (lang: SupportedLanguage) => {
+  const changeLanguage = async (lang: string) => {
     await i18n.changeLanguage(lang);
     localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
     setCurrentLanguage(lang);
@@ -40,7 +31,7 @@ export const LanguageProvider: React.FC<PropsWithChildren> = ({ children }) => {
       value={{
         currentLanguage,
         changeLanguage,
-        supportedLanguages: availableLanguages,
+        supportedLanguages: languages,
       }}
     >
       {children}

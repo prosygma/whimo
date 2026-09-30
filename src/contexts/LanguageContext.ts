@@ -1,12 +1,11 @@
 import { createContext } from 'react';
-import { availableLanguages } from '../i18n.ts';
-
-export type SupportedLanguage = (typeof availableLanguages)[number];
+import type { AppLanguage } from '../api/languages.ts';
 
 export interface LanguageContextType {
   currentLanguage: string;
-  changeLanguage: (lang: SupportedLanguage) => Promise<void>;
-  supportedLanguages: readonly string[];
+  changeLanguage: (lang: string) => Promise<void>;
+  /** Languages enabled in the admin, in picker order. */
+  supportedLanguages: AppLanguage[];
 }
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
