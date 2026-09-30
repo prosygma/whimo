@@ -1,10 +1,10 @@
 {
   "name": "CamerTrace",
-  "htmlTitle": "CamerTrace — Traçabilité du cacao et du café au Cameroun (RDUE)",
+  "htmlTitle": "CamerTrace — Traçabilité du Cacao et du Café au Cameroun (RDUE)",
   "tagline": {
-    "fr": "Traçabilité du cacao et du café au Cameroun",
-    "en": "Cocoa and coffee traceability in Cameroon",
-    "es": "Trazabilidad del cacao y el café en Camerún"
+    "fr": "Traçabilité du Cacao et du Café au Cameroun",
+    "en": "Cocoa and Coffee traceability in Cameroon",
+    "es": "Trazabilidad del Cacao y el Café en Camerún"
   },
   "heroDescription": {
     "fr": "Conformité RDUE pour les producteurs, coopératives et exportateurs : géolocalisation des parcelles et preuve zéro déforestation.",
