@@ -7,9 +7,14 @@
     "es": "Trazabilidad del cacao y el café en Camerún"
   },
   "heroDescription": {
-    "fr": "Suivi et traçabilité de la chaîne d'approvisionnement des coopératives, acheteurs et exportateurs",
-    "en": "Supply chain monitoring and traceability of cooperatives, buyers and exporters",
-    "es": "Monitoreo y trazabilidad de la cadena de suministro de cooperativas, compradores y exportadores"
+    "fr": "Conformité RDUE pour les producteurs, coopératives et exportateurs : géolocalisation des parcelles et preuve zéro déforestation.",
+    "en": "EUDR compliance for producers, cooperatives and exporters: plot geolocation and deforestation-free evidence.",
+    "es": "Cumplimiento del EUDR para productores, cooperativas y exportadores: geolocalización de parcelas y prueba libre de deforestación."
+  },
+  "heroNote": {
+    "fr": "Enregistrez vos transactions, cartographiez vos parcelles et générez les rapports de traçabilité exigés par le règlement européen sur la déforestation.",
+    "en": "Record your transactions, map your plots and generate the traceability reports required by the EU deforestation regulation.",
+    "es": "Registra tus transacciones, cartografía tus parcelas y genera los informes de trazabilidad exigidos por el reglamento europeo sobre deforestación."
   },
   "themeColor": "#0B6B3A",
   "fontsUrl": "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap",
