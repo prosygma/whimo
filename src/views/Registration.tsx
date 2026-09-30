@@ -26,7 +26,7 @@ export type OtpModes = LoginMethod;
 
 const Registration: React.FC = () => {
   const { t } = useTranslation(['registration', 'common']);
-  const { currentLanguage } = useLanguage();
+  const { currentLanguage, languageLabel } = useLanguage();
   const navigate = useNavigate();
   const { setTokens } = useTokens();
 
@@ -214,7 +214,7 @@ const Registration: React.FC = () => {
         </div>
       </div>
       <Button primary ghost className="self-center" Icon={LanguageIcon} onClick={() => setLanguageModalOpen(true)}>
-        {t(`language_${currentLanguage}`, { ns: 'common' })}
+        {languageLabel(currentLanguage)}
       </Button>
       <LanguageSwitchModal isOpen={languageModalOpen} onClose={() => setLanguageModalOpen(false)} />
       <OtpModeSelectionModal

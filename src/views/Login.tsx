@@ -25,7 +25,7 @@ export type LoginMethod = 'email' | 'phone';
 
 const Login: React.FC = () => {
   const { t } = useTranslation(['login', 'common']);
-  const { currentLanguage } = useLanguage();
+  const { currentLanguage, languageLabel } = useLanguage();
   const navigate = useNavigate();
   const { setTokens } = useTokens();
 
@@ -185,7 +185,7 @@ const Login: React.FC = () => {
         </div>
       </div>
       <Button primary ghost className="self-center" Icon={LanguageIcon} onClick={() => setLanguageModalOpen(true)}>
-        {t(`language_${currentLanguage}`, { ns: 'common' })}
+        {languageLabel(currentLanguage)}
       </Button>
       <LanguageSwitchModal isOpen={languageModalOpen} onClose={() => setLanguageModalOpen(false)} />
     </>

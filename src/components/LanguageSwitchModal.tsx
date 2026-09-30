@@ -12,7 +12,7 @@ interface Props {
 
 const LanguageSwitchModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const { t } = useTranslation('common');
-  const { currentLanguage, changeLanguage, supportedLanguages } = useLanguage();
+  const { currentLanguage, changeLanguage, supportedLanguages, languageLabel } = useLanguage();
 
   return (
     <Modal isOpen={isOpen}>
@@ -26,9 +26,7 @@ const LanguageSwitchModal: React.FC<Props> = ({ isOpen, onClose }) => {
               className="px-6 py-3 rounded-lg border border-gray-10 cursor-pointer flex items-center gap-2 hover:border-sea-blue shadow-[0_1px_2px_0_#1018280D]"
             >
               <LanguageFlag language={language} />
-              <p className="flex-1 text-left">
-                {t(`language_${language.code}`, { ns: 'common', defaultValue: language.name })}
-              </p>
+              <p className="flex-1 text-left">{languageLabel(language.code)}</p>
               {language.code === currentLanguage && <CheckCircleIcon className="size-6 text-success shrink-0" />}
             </button>
           ))}
