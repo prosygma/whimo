@@ -2,17 +2,8 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '../uikit/Button.tsx';
 import { useLanguage } from '../../hooks/useLanguage.ts';
-import type { SupportedLanguage } from '../../contexts/LanguageContext.ts';
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
-import enFlag from '../../assets/flags/en.svg';
-import frFlag from '../../assets/flags/fr.svg';
-import esFlag from '../../assets/flags/es.svg';
-
-const flagMap: Record<string, string> = {
-  en: enFlag,
-  fr: frFlag,
-  es: esFlag,
-};
+import LanguageFlag from '../LanguageFlag.tsx';
 
 const Language: React.FC = () => {
   const { t } = useTranslation(['settings', 'common']);
@@ -20,7 +11,7 @@ const Language: React.FC = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(currentLanguage);
 
   const handleConfirm = () => {
-    void changeLanguage(selectedLanguage as SupportedLanguage);
+    void changeLanguage(selectedLanguage);
   };
 
   return (
@@ -28,15 +19,15 @@ const Language: React.FC = () => {
       <div className="flex-1">
         <h3 className="text-headline-2 mb-8">{t('language_header')}</h3>
         <div className="flex flex-col">
-          {supportedLanguages.map((lang) => (
-            <div key={lang} onClick={() => setSelectedLanguage(lang)} className="cursor-pointer py-6 flex items-center gap-2 border-b-2 border-gray-5 first:border-t-2 hover:bg-gray-5">
-              <img src={flagMap[lang]} alt={lang} className="size-6 shrink-0" />
-              <p className="flex-1">
-                {t(`language_${lang}`, {ns: 'common'})}
-              </p>
-              {lang === selectedLanguage && (
-                <CheckCircleIcon className="size-6 text-success shrink-0" />
-              )}
+          {supportedLanguages.map((language) => (
+            <div
+              key={language.code}
+              onClick={() => setSelectedLanguage(language.code)}
+              className="cursor-pointer py-6 flex items-center gap-2 border-b-2 border-gray-5 first:border-t-2 hover:bg-gray-5"
+            >
+              <LanguageFlag language={language} />
+              <p className="flex-1">{t(`language_${language.code}`, { ns: 'common', defaultValue: language.name })}</p>
+              {language.code === selectedLanguage && <CheckCircleIcon className="size-6 text-success shrink-0" />}
             </div>
           ))}
         </div>
