@@ -7,7 +7,7 @@ import LanguageFlag from '../LanguageFlag.tsx';
 
 const Language: React.FC = () => {
   const { t } = useTranslation(['settings', 'common']);
-  const { currentLanguage, changeLanguage, supportedLanguages } = useLanguage();
+  const { currentLanguage, changeLanguage, supportedLanguages, languageLabel } = useLanguage();
   const [selectedLanguage, setSelectedLanguage] = useState(currentLanguage);
 
   const handleConfirm = () => {
@@ -26,7 +26,7 @@ const Language: React.FC = () => {
               className="cursor-pointer py-6 flex items-center gap-2 border-b-2 border-gray-5 first:border-t-2 hover:bg-gray-5"
             >
               <LanguageFlag language={language} />
-              <p className="flex-1">{t(`language_${language.code}`, { ns: 'common', defaultValue: language.name })}</p>
+              <p className="flex-1">{languageLabel(language.code)}</p>
               {language.code === selectedLanguage && <CheckCircleIcon className="size-6 text-success shrink-0" />}
             </div>
           ))}

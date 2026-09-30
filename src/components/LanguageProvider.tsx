@@ -4,7 +4,7 @@ import { getLanguagesState, LANGUAGE_STORAGE_KEY, subscribeLanguages } from '../
 import { LanguageContext } from '../contexts/LanguageContext.ts';
 
 export const LanguageProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation('common');
   const [currentLanguage, setCurrentLanguage] = useState<string>(i18n.language);
   const { languages } = useSyncExternalStore(subscribeLanguages, getLanguagesState);
 
@@ -32,12 +32,16 @@ export const LanguageProvider: React.FC<PropsWithChildren> = ({ children }) => {
     setCurrentLanguage(lang);
   };
 
+  const languageLabel = (code: string) =>
+    t(`language_${code}`, { defaultValue: languages.find((language) => language.code === code)?.name ?? code });
+
   return (
     <LanguageContext.Provider
       value={{
         currentLanguage,
         changeLanguage,
         supportedLanguages: languages,
+        languageLabel,
       }}
     >
       {children}
