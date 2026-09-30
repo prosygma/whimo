@@ -1,7 +1,7 @@
 {
-  "name": "CamerTrace — Traçabilité du cacao et du café",
+  "name": "CamerTrace — Traçabilité du Cacao et du Café",
   "short_name": "CamerTrace",
-  "description": "Traçabilité du cacao et du café au Cameroun : géolocalisation des parcelles, conformité RDUE et rapports de traçabilité pour producteurs, coopératives et exportateurs.",
+  "description": "Traçabilité du Cacao et du Café au Cameroun : géolocalisation des parcelles, conformité RDUE et rapports de traçabilité pour producteurs, coopératives et exportateurs.",
   "lang": "fr",
   "dir": "ltr",
   "start_url": "/",
