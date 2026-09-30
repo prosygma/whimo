@@ -101,6 +101,9 @@ const loadUploaded = (language: string) => {
 const loadBundled = async (language: string, namespace: string): Promise<Record<string, string>> => {
   if (!bundledLanguages.includes(language)) return {};
   const response = await fetch(`/locales/${language}/${namespace}.json`);
+  if (response.status === 404 || !response.headers.get('content-type')?.includes('json')) {
+    return {}; // No such namespace (the dev server answers index.html)
+  }
   if (!response.ok) throw new Error(`${response.status} loading ${language}/${namespace}`);
   return (await response.json()) as Record<string, string>;
 };
