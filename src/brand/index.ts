@@ -37,4 +37,8 @@ export const brand = {
   heroDescriptionFor(language: string): string | undefined {
     return localized((config as { heroDescription?: Localized }).heroDescription, language);
   },
+  /** Optional `heroNote` in brand.config.json: a smaller paragraph under the description. */
+  heroNoteFor(language: string): string | undefined {
+    return localized((config as { heroNote?: Localized }).heroNote, language);
+  },
 };

@@ -41,6 +41,8 @@ const NoAuthLayout: React.FC = () => {
     }
   }, [googleAuth, searchParams]);
 
+  const heroNote = brand.heroNoteFor(i18n.language);
+
   if (isAuthenticated) {
     return <Navigate to="/transactions" replace />;
   }
@@ -59,11 +61,12 @@ const NoAuthLayout: React.FC = () => {
               className="w-44 lg:w-64 max-w-full h-auto animate-fade-up"
             />
           )}
-          <p className="text-[22px] lg:text-[26px] leading-5.5">
-            <span className="block text-[48px] lg:text-[70px] leading-tight lg:leading-13.5 font-heading font-semibold mb-2">{brand.name}</span>
-            <span className="uppercase">{brand.taglineFor(i18n.language)}</span>
-          </p>
-          <p className="max-w-117 opacity-80 text-sm lg:text-base">{brand.heroDescriptionFor(i18n.language) ?? t('splash_description')}</p>
+          <div className="flex flex-col items-center gap-3">
+            <p className="text-[48px] lg:text-[70px] leading-tight lg:leading-13.5 font-heading font-semibold">{brand.name}</p>
+            <h1 className="max-w-117 text-[20px] lg:text-[24px] leading-snug font-heading font-semibold">{brand.taglineFor(i18n.language)}</h1>
+            <p className="max-w-117 opacity-80 text-sm lg:text-base">{brand.heroDescriptionFor(i18n.language) ?? t('splash_description')}</p>
+          </div>
+          {heroNote && <p className="max-w-117 opacity-70 text-sm">{heroNote}</p>}
         </div>
 
         <div className="w-full mt-auto pt-6 border-t border-white/15">
