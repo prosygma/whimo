@@ -37,7 +37,7 @@ const Download: React.FC = () => {
           </div>
           
           <a
-            href="https://github.com/prosygma/whimo-android/releases/download/apk-60/camertrace_60.apk"
+            href="https://github.com/prosygma/whimo-android/releases/download/apk-61/camertrace_61.apk"
             className="w-full flex items-center justify-center gap-2 text-white bg-primary hover:bg-primary-hover active:bg-primary-active py-3.5 px-6 rounded-lg font-medium text-center transition-all shadow-md mt-2"
           >
             <ArrowDownTrayIcon className="w-5 h-5 animate-bounce" />
