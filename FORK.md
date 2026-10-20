@@ -79,6 +79,7 @@ the generic `feat/white-label` branch, which is the first candidate PR for EFI.
 Status and chart colours (traceability scale…) are NOT brand colours and stay
 as EFI defines them (`src/index.css`, `src/constants/chartColors.ts`).
 
-Brand sources (logos, graphic chart, export scripts) are outside the repo, in
-`Documents/whimo/logos/camertrace-cicc/` (`charte-graphique.html`,
-`render.sh`, `declinaisons/`).
+Brand sources (logos, graphic chart, export scripts) are outside the repo. The
+logo in use is v3, in `Documents/whimo/logos/camertrace-cicc-v3/` (`render.sh`,
+`check_fit.py`, `declinaisons/`); the graphic chart (`charte-graphique.html`)
+is still in `Documents/whimo/logos/camertrace-cicc/`.
