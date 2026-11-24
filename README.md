@@ -1,3 +1,9 @@
+> **CamerTrace** (web app): the cocoa and coffee traceability platform of the CICC, Cameroon,
+> built on [WHIMO](https://github.com/EuropeanForestInstitute/whimo) by the European Forest Institute.
+>
+> Contributing: [CONTRIBUTING.md](CONTRIBUTING.md) · Branches: [FORK.md](FORK.md) · Security: [SECURITY.md](SECURITY.md).
+> The rest of this README comes from WHIMO.
+
 # Whimo
 
 A supply chain traceability platform that allows tracking product origins and history through the entire supply chain.

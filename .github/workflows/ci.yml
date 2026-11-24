@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [camertrace]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      # Uses the public values in .env.production (API URL, Google client ID); no secret is needed.
+      - run: npm run build
+
+  upstream-clean:
+    # Generic branches are candidates for EuropeanForestInstitute: they must carry no CamerTrace content.
+    if: github.event_name == 'pull_request' && (startsWith(github.head_ref, 'feat/') || startsWith(github.head_ref, 'fix/'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch EFI main
+        run: |
+          git remote add upstream https://github.com/EuropeanForestInstitute/${{ github.event.repository.name }}.git
+          git fetch --no-tags upstream main
+      # Check the PR's own commits, not the merge with the base branch.
+      - run: scripts/check-upstream-clean.sh ${{ github.event.pull_request.head.sha }} upstream/main
